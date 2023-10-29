@@ -5,7 +5,7 @@ export default function Home() {
 		<>
 			<Header />
 			<main className="">
-				<div>asdas</div>
+				<div>home</div>
 			</main>
 		</>
 	);
