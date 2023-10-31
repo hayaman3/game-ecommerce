@@ -7,7 +7,7 @@ export type LogoProps = {
 const Logo: FunctionComponent<LogoProps> = ({}) => {
 	return (
 		<>
-			<span>Logo</span>
+			<span className="text-white">Logo</span>
 		</>
 	);
 };

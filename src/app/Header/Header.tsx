@@ -8,9 +8,11 @@ export type HeaderProps = {
 
 const Header: FunctionComponent<HeaderProps> = ({}) => {
 	return (
-		<header className="px-4 py-14 bg-slate-900 flex items-center flex-wrap gap-2">
-			<Logo />
-			<PageNav />
+		<header className="px-4 py-14 bg-transparent">
+			<div className="max-w-[992px] m-auto flex items-center gap-2 justify-between">
+				<Logo />
+				<PageNav />
+			</div>
 		</header>
 	);
 };

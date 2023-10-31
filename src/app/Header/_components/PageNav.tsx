@@ -9,7 +9,7 @@ const PageNav = () => {
 	const [selected, setSelected] = useState(tabs[0]);
 
 	return (
-		<ul className="flex">
+		<ul className="flex gap-2">
 			{tabs.map(tab => (
 				<Chip
 					text={tab}

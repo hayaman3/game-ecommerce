@@ -22,7 +22,7 @@ const Chip: FunctionComponent<ChipProps> = ({
 					selected
 						? 'text-white'
 						: 'text-slate-300 hover:text-slate-200 hover:bg-slate-700'
-				} text-sm transition-colors px-2.5 py-0.5 rounded-md relative`}>
+				} text-base transition-colors px-3 py-1 rounded-md relative`}>
 				<span className="relative z-10">{text}</span>
 				{selected && (
 					<motion.span
