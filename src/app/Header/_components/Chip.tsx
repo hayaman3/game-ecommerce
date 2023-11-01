@@ -21,14 +21,14 @@ const Chip: FunctionComponent<ChipProps> = ({
 				className={`${
 					selected
 						? 'text-white'
-						: 'text-slate-300 hover:text-slate-200 hover:bg-slate-700'
+						: 'text-gray-300 hover:text-gray-200 hover:bg-gray-700'
 				} text-base transition-colors px-3 py-1 rounded-md relative`}>
 				<span className="relative z-10">{text}</span>
 				{selected && (
 					<motion.span
 						layoutId="pill-tab"
 						transition={{ type: 'spring', duration: 0.5 }}
-						className="absolute inset-0 z-0 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-md"></motion.span>
+						className="absolute inset-0 z-0 bg-gradient-to-r from-gray-700 to-gray-600 rounded-md"></motion.span>
 				)}
 			</Link>
 		</li>
