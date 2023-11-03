@@ -6,51 +6,28 @@ const config: Config = {
 		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
 		'./src/_components/**/*.{js,ts,jsx,tsx,mdx}',
 		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
-		// 		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-		// 		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
-		// 		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
 	],
 	theme: {
 		extend: {
-			backgroundImage: {
-				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'gradient-conic':
-					'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+			colors: {
+				dark: {
+					25: '#383838',
+					50: '#363636',
+					100: '#333333',
+					200: '#2E2E2E',
+					300: '#2C2C2C',
+					400: '#292929',
+					500: '#272727',
+					600: '#252525',
+					700: '#232323',
+					800: '#1E1E1E',
+					900: '#121212',
+				},
 			},
 		},
 	},
 	plugins: [],
 };
 
-const configMt = withMT(config);
-export default configMt;
-
-// import type { Config } from 'tailwindcss';
-// // import withMT from '@material-tailwind/react/utils/withMT';
-// const withMT = require('@material-tailwind/react/utils/withMT');
-
-// const config: Config = {
-// 	content: [
-// 		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-// 		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
-// 		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
-// 	],
-// 	theme: {
-// 		extend: {},
-// 	},
-// 	plugins: [],
-// };
-
-// // module.exports = withMT({
-// // 	content: [
-// //     		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-// //     		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
-// //     		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
-// //     	],
-// // 	theme: {
-// // 		extend: {},
-// // 	},
-// // 	plugins: [],
-// // });
-
-// export default withMT(config);
+const withMTConfig = withMT(config);
+export default withMTConfig;
