@@ -1,8 +1,9 @@
+'use client';
 import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { FiMousePointer } from 'react-icons/fi';
 
-const Example = () => {
+const HeroImage = () => {
 	return (
 		<div className="grid w-full place-content-center bg-gradient-to-br from-indigo-500 to-violet-500 px-4 py-12 text-slate-900">
 			<TiltCard />
@@ -83,4 +84,16 @@ const TiltCard = () => {
 	);
 };
 
-export default Example;
+export default HeroImage;
+
+// import React, { FunctionComponent } from 'react';
+
+// export type HeroImageProps = {
+// 	//no props
+// };
+
+// const HeroImage: FunctionComponent<HeroImageProps> = ({}) => {
+// 	return <>HeroImage</>;
+// };
+
+// export default HeroImage;
