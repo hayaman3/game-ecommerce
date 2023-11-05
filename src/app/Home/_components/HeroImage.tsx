@@ -1,11 +1,10 @@
 'use client';
 import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { FiMousePointer } from 'react-icons/fi';
 
 const HeroImage = () => {
 	return (
-		<div className="grid w-full place-content-center bg-gradient-to-br from-indigo-500 to-violet-500 px-4 py-12 text-slate-900">
+		<div className=" px-4 py-12">
 			<TiltCard />
 		</div>
 	);
@@ -59,26 +58,21 @@ const TiltCard = () => {
 				rotateX,
 				transformStyle: 'preserve-3d',
 			}}
-			className="relative h-96 w-72 rounded-xl bg-gradient-to-br from-indigo-300 to-violet-300">
+			className="relative h-96 w-72 rounded-xl bg-gradient-to-br from-dark-25 to-dark-100">
 			<div
 				style={{
 					transform: 'translateZ(75px)',
 					transformStyle: 'preserve-3d',
 				}}
 				className="absolute inset-4 grid place-content-center rounded-xl bg-white shadow-lg">
-				<FiMousePointer
-					style={{
-						transform: 'translateZ(75px)',
-					}}
-					className="mx-auto text-4xl"
-				/>
-				<p
+				{/* <p
 					style={{
 						transform: 'translateZ(50px)',
 					}}
 					className="text-center text-2xl font-bold">
 					HOVER ME
-				</p>
+				</p> */}
+				<img src="../../../_assets/test.jpg" />
 			</div>
 		</motion.div>
 	);
