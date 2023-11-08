@@ -6,7 +6,14 @@ export type ImageHandlerProps = {
 };
 
 const ImageHandler: FunctionComponent<ImageHandlerProps> = ({}) => {
-	return <Image src="/test.jpg" layout="fill" objectFit="cover" alt="card" />;
+	return (
+		<Image
+			src="/test.jpg"
+			layout="fill"
+			objectFit="cover"
+			alt="card"
+		/>
+	);
 };
 
 export default ImageHandler;
