@@ -1,3 +1,4 @@
+"use client";
 import React, { FunctionComponent } from "react";
 
 import {
@@ -7,7 +8,7 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 
-export function DrawerPlacement() {
+function DrawerPlacement() {
   const [openRight, setOpenRight] = React.useState(false);
 
   const openDrawerRight = () => setOpenRight(true);
@@ -69,7 +70,12 @@ export type CartProps = {
 };
 
 const Cart: FunctionComponent<CartProps> = ({}) => {
-  return <>Cart</>;
+  return (
+    <div className="bg-white">
+      <span>Cart</span>Cart
+      <DrawerPlacement />
+    </div>
+  );
 };
 
 export default Cart;
