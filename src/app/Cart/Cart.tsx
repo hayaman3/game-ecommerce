@@ -72,7 +72,7 @@ export type CartProps = {
 const Cart: FunctionComponent<CartProps> = ({}) => {
   return (
     <div className="bg-white">
-      <span>Cart</span>Cart
+      <span>Cart</span>
       <DrawerPlacement />
     </div>
   );
