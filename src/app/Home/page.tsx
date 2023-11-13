@@ -8,7 +8,7 @@ export type homeProps = {
 
 const Home: FunctionComponent<homeProps> = ({}) => {
   return (
-    <main className="flex max-w-[992px]">
+    <main className="mx-auto flex max-w-[992px] items-center justify-center">
       <TextBlock />
       <HeroImage />
     </main>
