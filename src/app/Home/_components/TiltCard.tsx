@@ -1,7 +1,6 @@
 "use client";
 import React, { FunctionComponent } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import ProductCard from "@/_components/ProductCard";
 
 export type TiltCardProps = {
   children?: React.ReactNode;
