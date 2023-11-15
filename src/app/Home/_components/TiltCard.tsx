@@ -64,6 +64,7 @@ const TiltCard: FunctionComponent<TiltCardProps> = ({ children }) => {
         className="absolute inset-4 overflow-hidden rounded-xl shadow-lg transition"
       >
         {children}
+        {/* <div className="h-full w-full bg-white bg-opacity-10">white</div> */}
       </div>
     </motion.div>
   );

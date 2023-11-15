@@ -10,7 +10,7 @@ const HeroImage: FunctionComponent<HeroImageProps> = ({}) => {
   return (
     <div className=" px-4 py-12">
       <TiltCard>
-        <ProductCard className="hover:border-none" />
+        <ProductCard className="hover:border-0 hover:border-none hover:backdrop-blur-none" />
       </TiltCard>
     </div>
   );
