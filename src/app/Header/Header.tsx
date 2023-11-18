@@ -9,8 +9,8 @@ export type HeaderProps = {
 
 const Header: FunctionComponent<HeaderProps> = ({}) => {
   return (
-    <header className="bg-transparent px-4 pb-4 pt-10">
-      <div className="m-auto flex max-w-[992px] items-center justify-between gap-2">
+    <header className="bg-transparent px-4 pt-8">
+      <div className="m-auto flex max-w-[1080px] items-center justify-between gap-2">
         <Logo />
         <PageNav />
         <BadgeWithBorder />

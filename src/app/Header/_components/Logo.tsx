@@ -1,15 +1,15 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent } from "react";
 
 export type LogoProps = {
-	//no props
+  //no props
 };
 
 const Logo: FunctionComponent<LogoProps> = ({}) => {
-	return (
-		<>
-			<span className="text-white">Logo</span>
-		</>
-	);
+  return (
+    <>
+      <span className="text-3xl font-extrabold">LOGO</span>
+    </>
+  );
 };
 
 export default Logo;
