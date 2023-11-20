@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { Button } from "./Button";
 
 export type TextBlockProps = {
   //no props
@@ -13,6 +14,10 @@ const TextBlock: FunctionComponent<TextBlockProps> = ({}) => {
         buy any games here and all of the prices are generated to imitate a real
         game shop.
       </p>
+      <div className="flex flex-row gap-4">
+        <Button>Shop Now</Button>
+        <Button variant="dark">Rawg API</Button>
+      </div>
     </div>
   );
 };
