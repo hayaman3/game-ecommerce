@@ -15,8 +15,10 @@ const TextBlock: FunctionComponent<TextBlockProps> = ({}) => {
         game shop.
       </p>
       <div className="flex flex-row gap-4">
-        <Button>Shop Now</Button>
-        <Button variant="dark">Rawg API</Button>
+        <Button href={"Shop"}>Shop Now</Button>
+        <Button href={"https://rawg.io/apidocs"} target={true} variant="dark">
+          Rawg API
+        </Button>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import HeroImage from "./_components/HeroImage";
 import TextBlock from "./_components/TextBlock";
+import Main from "@/_components/Main";
 
 export type homeProps = {
   //no props
@@ -8,10 +9,10 @@ export type homeProps = {
 
 const Home: FunctionComponent<homeProps> = ({}) => {
   return (
-    <main className="mx-auto flex w-[992px] flex-row flex-wrap items-center justify-between">
+    <Main>
       <TextBlock />
       <HeroImage />
-    </main>
+    </Main>
   );
 };
 
