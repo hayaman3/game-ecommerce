@@ -8,7 +8,7 @@ export type shopProps = {
 const Shop: FunctionComponent<shopProps> = ({}) => {
   return (
     <Main>
-      <span className="text-white">Shop</span>
+      <span>Shop</span>
     </Main>
   );
 };

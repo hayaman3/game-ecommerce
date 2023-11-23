@@ -1,30 +1,47 @@
 "use client";
-// import { motion } from 'framer-motion';
-import { Dispatch, SetStateAction, useState } from "react";
-import Chip from "./Chip";
+import { FunctionComponent } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const tabs = ["Home", "Shop", "About"];
+type Ttabs = {
+  path: string;
+  title: string;
+};
 
-const PageNav = () => {
-  const [selected, setSelected] = useState(tabs[0]);
+const tabs: Ttabs[] = [
+  {
+    path: "/",
+    title: "Home",
+  },
+  {
+    path: "/Shop",
+    title: "Shop",
+  },
+  {
+    path: "/About",
+    title: "About",
+  },
+];
 
+const PageNav: FunctionComponent = () => {
+  let pathname = usePathname() || "/";
   return (
-    <ul className="flex gap-2">
-      {/* {tabs.map((tab) => (
-        <Chip
-          text={tab}
-          selected={selected === tab}
-          setSelected={setSelected}
-          key={tab}
-        />
-      ))} */}
-
-      {tabs.map((tab) => (
-        <li className="nav-links link-underline cursor-pointer px-4 font-medium capitalize text-gray-500 duration-200 hover:scale-105 hover:text-white">
-          <Link href={tab}>{tab}</Link>
-        </li>
-      ))}
+    <ul className="flex gap-4">
+      {tabs.map(({ path, title }, key) => {
+        const isActive = path === pathname;
+        return (
+          <li key={key}>
+            <Link
+              href={path}
+              className={`text-lg text-white transition ease-in-out ${
+                isActive ? "underline underline-offset-4" : ""
+              }`}
+            >
+              <span>{title}</span>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 };
