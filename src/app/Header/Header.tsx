@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import Logo from "./_components/Logo";
 import PageNav from "./_components/PageNav";
-import { BadgeWithBorder } from "./_components/Test";
+import CartButton from "./_components/CartButton";
 
 export type HeaderProps = {
   //no props
@@ -13,7 +13,7 @@ const Header: FunctionComponent<HeaderProps> = ({}) => {
       <div className="m-auto flex max-w-[1080px] items-center justify-between gap-2">
         <Logo />
         <PageNav />
-        <BadgeWithBorder />
+        <CartButton />
       </div>
     </header>
   );
