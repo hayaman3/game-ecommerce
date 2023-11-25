@@ -33,8 +33,7 @@
 // // https://api.rawg.io/api/stores?key${process.env.RAWG_API_KEY}
 import React, { FunctionComponent } from "react";
 import ProductCard from "@/_components/ProductCard";
-import Cart from "../Cart/Cart";
-
+import CartButton from "../Header/_components/CartButton";
 export type pageProps = {
   //no props
 };
@@ -43,7 +42,7 @@ const page: FunctionComponent<pageProps> = ({}) => {
   return (
     <main className="grid place-items-center">
       <ProductCard />
-      <Cart />
+      <CartButton />
     </main>
   );
 };
