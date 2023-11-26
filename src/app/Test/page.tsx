@@ -31,20 +31,20 @@
 
 // export default page;
 // // https://api.rawg.io/api/stores?key${process.env.RAWG_API_KEY}
-import React, { FunctionComponent } from "react";
-import ProductCard from "@/_components/ProductCard";
-import CartButton from "../Header/_components/CartButton";
-export type pageProps = {
-  //no props
-};
+// import React, { FunctionComponent } from "react";
+// import ProductCard from "@/_components/ProductCard";
+// import CartButton from "../Header/_components/CartButton";
+// export type pageProps = {
+//   //no props
+// };
 
-const page: FunctionComponent<pageProps> = ({}) => {
-  return (
-    <main className="grid place-items-center">
-      <ProductCard />
-      <CartButton />
-    </main>
-  );
-};
+// const page: FunctionComponent<pageProps> = ({}) => {
+//   return (
+//     <main className="grid place-items-center">
+//       <ProductCard />
+//       <CartButton />
+//     </main>
+//   );
+// };
 
-export default page;
+// export default page;
