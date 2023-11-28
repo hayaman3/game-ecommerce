@@ -8,11 +8,9 @@ export type HeroImageProps = {
 
 const HeroImage: FunctionComponent<HeroImageProps> = ({}) => {
   return (
-    <div className="">
-      <TiltCard>
-        <ProductCard className="hover:border-0 hover:border-none hover:backdrop-blur-none" />
-      </TiltCard>
-    </div>
+    <TiltCard>
+      <ProductCard className="hover:border-0 hover:border-none hover:backdrop-blur-none" />
+    </TiltCard>
   );
 };
 

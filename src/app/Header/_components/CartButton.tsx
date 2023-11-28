@@ -11,7 +11,7 @@ const CartButton: FunctionComponent<CartButtonProps> = ({ onClick }) => {
   return (
     <button className="relative" onClick={onClick}>
       {cartQuantity ? (
-        <span className="absolute -right-[6px] bottom-0 flex h-5 w-5 content-center items-center justify-center rounded-full border-2 border-dark-300 bg-white">
+        <span className="absolute -right-[6px] bottom-0 flex h-4 w-4 content-center items-center justify-center rounded-full border-2 border-dark-300 bg-white p-[8px]">
           <span className="text-center text-xs font-bold text-dark-300">
             {cartQuantity}
           </span>

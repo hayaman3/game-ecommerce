@@ -16,7 +16,7 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({ className }) => {
     >
       <ImageHandler />
       <div className="z-100 absolute inset-0 flex flex-col justify-end">
-        <div className=" flex h-1/4 w-full bg-gray-900 bg-opacity-50 bg-clip-padding p-4 text-white backdrop-blur-md backdrop-filter">
+        <div className=" flex h-1/4 w-full bg-[#333333] bg-opacity-50 bg-clip-padding p-4 text-white backdrop-blur-md backdrop-filter">
           <span className="text-sm">Cyberpunk 2077</span>
         </div>
       </div>

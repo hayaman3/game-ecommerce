@@ -54,7 +54,7 @@ const TiltCard: FunctionComponent<TiltCardProps> = ({ children }) => {
         rotateX,
         transformStyle: "preserve-3d",
       }}
-      className="relative h-96 w-72 rounded-xl border border-[#ffffff1a] bg-gradient-to-br from-dark-25 to-dark-50 transition-colors hover:border hover:border-[#ffffff80]"
+      className="relative mx-auto h-96 w-72 rounded-xl border border-[#ffffff1a] bg-gradient-to-br from-dark-25 to-dark-50 transition-colors hover:border hover:border-[#ffffff80]"
     >
       <div
         style={{
