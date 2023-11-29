@@ -48,3 +48,21 @@
 // };
 
 // export default page;
+
+import React, { FunctionComponent } from "react";
+import { Button, LinkButton } from "./Test";
+
+export type pageProps = {
+  //no props
+};
+
+const page: FunctionComponent<pageProps> = ({}) => {
+  return (
+    <>
+      <Button>Button</Button>
+      <LinkButton href="/Test">Button</LinkButton>
+    </>
+  );
+};
+
+export default page;
