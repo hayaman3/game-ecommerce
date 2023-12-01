@@ -18,7 +18,7 @@ const CartControl: FunctionComponent<CartControlProps> = ({}) => {
     <>
       <CartButton onClick={handleDrawerToggle} />
       <CartDrawer isOpen={isDrawerOpen} onClose={handleDrawerToggle}>
-        <span>adssa</span>
+        {/* <span>adssa</span> */}
       </CartDrawer>
     </>
   );

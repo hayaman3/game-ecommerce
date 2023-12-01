@@ -33,11 +33,11 @@ const PageNav: FunctionComponent = () => {
           <li key={key}>
             <Link
               href={path}
-              className={`text-lg text-white transition ease-in-out ${
-                isActive ? "underline underline-offset-4" : ""
+              className={`text-lg font-light  transition ease-in-out  ${
+                isActive ? "font-[700] " : ""
               }`}
             >
-              <span>{title}</span>
+              <span className=" ">{title}</span>
             </Link>
           </li>
         );

@@ -10,7 +10,7 @@ export type HeaderProps = {
 const Header: FunctionComponent<HeaderProps> = ({}) => {
   return (
     <header className="sticky top-0 w-full bg-transparent px-4 pt-8">
-      <div className="m-auto flex max-w-[1080px] items-center justify-between gap-2">
+      <div className="m-auto flex max-w-[1280px] items-center justify-between gap-2">
         <Logo />
         <PageNav />
         <CartControl />
