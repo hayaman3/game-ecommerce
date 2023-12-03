@@ -4,24 +4,16 @@ import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/_lib/util";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 dark:hover:bg-slate-800 dark:hover:text-slate-100 disabled:opacity-50 dark:focus:ring-slate-400 disabled:pointer-events-none dark:focus:ring-offset-slate-900 data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800",
+  "inline-flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:opacity-50 dark:focus:ring-slate-400 disabled:pointer-events-none data-[state=open]:bg-slate-100",
   {
     variants: {
       variant: {
-        default: "bg-white text-[#383838]",
-        dark: "bg-[#383838] text-white shadow-[1.55px_4px_15.5px_0px_rgba(0,0,0,0.25)]",
-        outline:
-          "bg-transparent border border-slate-200 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-100",
-        subtle:
-          "bg-slate-100 text-slate-900 hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-100",
-        ghost:
-          "bg-transparent dark:bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 dark:text-slate-100 dark:hover:text-slate-100 data-[state=open]:bg-transparent dark:data-[state=open]:bg-transparent",
-        link: "bg-transparent dark:bg-transparent underline-offset-4 hover:underline text-slate-900 dark:text-slate-300 hover:bg-transparent dark:hover:bg-transparent",
+        default:
+          "bg-white text-[#383838] shadow-[1.55px_4px_15.5px_0px_rgba(0,0,0,0.25)]",
+        dark: "bg-dark-50 text-white shadow-[1.55px_4px_15.5px_0px_rgba(0,0,0,0.25)] hover:bg-dark-700",
       },
       size: {
         default: "rounded-lg text-base px-8 py-2 font-bold",
-        sm: "h-9 px-2 rounded-md",
-        lg: "h-11 px-8 rounded-md",
       },
     },
     defaultVariants: {
