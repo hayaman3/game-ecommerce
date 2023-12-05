@@ -14,7 +14,7 @@ const TextBlock: FunctionComponent<TextBlockProps> = ({}) => {
         buy any games here and all of the prices are generated to imitate a real
         game shop.
       </p>
-      <div className="max-[869px]:justify-center flex flex-row gap-4">
+      <div className="flex flex-row gap-4 max-[869px]:justify-center">
         <Button href={"Shop"}>Shop Now</Button>
         <Button href={"https://rawg.io/apidocs"} target={true} variant="dark">
           Rawg API
