@@ -66,3 +66,13 @@ const page: FunctionComponent<pageProps> = ({}) => {
 };
 
 export default page;
+
+// export async function getServerSideProps() {
+//   const trial = process.env.RAWG_KEY;
+//   console.log(trial);
+//   return {
+//     props: {
+//       title: "hello",
+//     },
+//   };
+// }

@@ -8,6 +8,8 @@ import {
 import axios from "axios";
 import React, { FunctionComponent } from "react";
 
+import { getProducts } from "../../_service/api";
+
 export type shopProps = {
   //no props
 };
@@ -18,9 +20,7 @@ const Shop: FunctionComponent<shopProps> = ({}) => {
   return (
     <QueryClientProvider client={queryClient}>
       <Main>
-        <div className="grid">
-          <TrialApp />
-        </div>
+        <div className="grid">{/* <TrialApp /> */}</div>
       </Main>
     </QueryClientProvider>
   );
@@ -32,29 +32,49 @@ export type TrialAppProps = {
   //no props
 };
 
-interface IData {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
+const URL = "https://api.rawg.io/api/game";
+const PageUrl = `https://api.rawg.io/api/games?key=${process.env.RAWG_KEY}=1&page_size=3`;
+const GameUrl = `https://api.rawg.io/api/games?key=${process.env.RAWG_KEY}`;
+
+// interface IData {
+//   userId: number;
+//   id: number;
+//   title: string;
+//   body: string;
+// }
 
 const TrialApp: FunctionComponent<TrialAppProps> = ({}) => {
-  const { data } = useQuery({
-    queryKey: ["repoData"],
-    queryFn: async () => {
-      const { data } = await axios.get(
-        "https://jsonplaceholder.typicode.com/posts/1",
-      );
-      return data as IData;
-    },
+  // const { data } = useQuery({
+  //   queryKey: ["rawgAPI"],
+  //   queryFn: async () => {
+  //     const { data } = await axios.get(
+  //       // "https://jsonplaceholder.typicode.com/posts/1",
+  //       GameUrl,
+  //     );
+  //     return data;
+  //   },
+  // });
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["rawgAPI"],
+    queryFn: getProducts,
   });
 
-  console.log(data);
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (isError) {
+    return <p>Error loading products</p>;
+  }
+
+  // console.log(data);
+  // console.log("asd");
+  // console.log(PageUrl);
   return (
     <>
-      <div>TrialApp</div>
-      <div>{data?.title}</div>
+      <div>Shop</div>
+      <div>{JSON.stringify(data)}</div>
     </>
   );
 };
@@ -75,10 +95,6 @@ const TrialApp: FunctionComponent<TrialAppProps> = ({}) => {
 //     return response.json();
 //   }
 //   throw new Error("");
-// };
-
-// const Products: FunctionComponent<ProductsProps> = ({}) => {
-//   return <>Products</>;
 // };
 
 // export default Products;
