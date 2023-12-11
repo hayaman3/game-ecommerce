@@ -20,7 +20,7 @@ const Shop: FunctionComponent<shopProps> = ({}) => {
   return (
     <QueryClientProvider client={queryClient}>
       <Main>
-        <div className="grid">{/* <TrialApp /> */}</div>
+        <div className="grid"><TrialApp /></div>
       </Main>
     </QueryClientProvider>
   );
@@ -44,33 +44,33 @@ const GameUrl = `https://api.rawg.io/api/games?key=${process.env.RAWG_KEY}`;
 // }
 
 const TrialApp: FunctionComponent<TrialAppProps> = ({}) => {
-  // const { data } = useQuery({
-  //   queryKey: ["rawgAPI"],
-  //   queryFn: async () => {
-  //     const { data } = await axios.get(
-  //       // "https://jsonplaceholder.typicode.com/posts/1",
-  //       GameUrl,
-  //     );
-  //     return data;
-  //   },
-  // });
-
-  const { data, isLoading, isError } = useQuery({
+  const { data } = useQuery({
     queryKey: ["rawgAPI"],
-    queryFn: getProducts,
+    queryFn: async () => {
+      const { data } = await axios.get(
+        // "https://jsonplaceholder.typicode.com/posts/1",
+        GameUrl,
+      );
+      return data;
+    },
   });
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  // const { data, isLoading, isError } = useQuery({
+  //   queryKey: ["rawgAPI"],
+  //   queryFn: getProducts,
+  // });
 
-  if (isError) {
-    return <p>Error loading products</p>;
-  }
+  // if (isLoading) {
+  //   return <p>Loading...</p>;
+  // }
 
-  // console.log(data);
-  // console.log("asd");
-  // console.log(PageUrl);
+  // if (isError) {
+  //   return <p>Error loading products</p>;
+  // }
+
+  console.log(data);
+  console.log("asd");
+  console.log(PageUrl);
   return (
     <>
       <div>Shop</div>

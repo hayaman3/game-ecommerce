@@ -30,3 +30,9 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+// const queryClient = new QueryClient();
+
+// <QueryClientProvider client={queryClient}>
+// </QueryClientProvider>
