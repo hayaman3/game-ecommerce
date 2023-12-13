@@ -4,17 +4,9 @@ import CartDrawer from "./CartDrawer/CartDrawer";
 import Home from "./Home/page";
 
 export default function Main() {
-  function onClose() {
-    console.log("Modal has closed");
-  }
-
-  function onOk() {
-    console.log("Ok was clicked");
-  }
-
   return (
     <>
-      <CartDrawer title="Example Modal" onClose={onClose} onOk={onOk}>
+      <CartDrawer title="Example Modal">
         <Link href="/products?showDialog=y" className="text-3xl underline">
           Go to Products with Modal
         </Link>

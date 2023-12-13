@@ -140,7 +140,7 @@ const CartDrawer: FunctionComponent<CartDrawerProps> = ({
 
   useEffect(() => {
     if (showDialog === "y") {
-      dialogRef.current?.showModal();
+      dialogRef.current?.show();
     } else {
       dialogRef.current?.close();
     }
