@@ -123,15 +123,11 @@ import React, { FunctionComponent } from "react";
 
 export type CartDrawerProps = {
   title: string;
-  onClose: () => void;
-  onOk: () => void;
   children: React.ReactNode;
 };
 
 const CartDrawer: FunctionComponent<CartDrawerProps> = ({
   title,
-  onClose,
-  onOk,
   children,
 }) => {
   const searchParams = useSearchParams();
@@ -148,13 +144,9 @@ const CartDrawer: FunctionComponent<CartDrawerProps> = ({
 
   const closeDialog = () => {
     dialogRef.current?.close();
-    onClose();
   };
 
-  const clickOk = () => {
-    onOk();
-    closeDialog();
-  };
+
 
   const dialog: JSX.Element | null =
     showDialog === "y" ? (
@@ -176,7 +168,7 @@ const CartDrawer: FunctionComponent<CartDrawerProps> = ({
             {children}
             <div className="mt-2 flex flex-row justify-end">
               <button
-                onClick={clickOk}
+                onClick={closeDialog}
                 className="rounded border-none bg-green-500 px-2 py-1"
               >
                 OK
