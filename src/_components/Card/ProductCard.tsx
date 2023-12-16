@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import ImageHandler from "./ImageHandler";
+import CardImage from "./CardImage";
 import { twMerge } from "tailwind-merge";
 
 export type ProductCardProps = {
@@ -10,12 +10,12 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({ className }) => {
   return (
     <div
       className={twMerge(
-        "relative flex h-96 w-72 overflow-hidden rounded-lg border-[1px] border-solid border-transparent shadow-lg backdrop-filter hover:border-deep-purple-400 hover:backdrop-blur-lg",
+        "hover:border-deep-purple-400 relative flex h-96 w-72 overflow-hidden rounded-lg border-[1px] border-solid border-transparent shadow-lg backdrop-filter hover:backdrop-blur-lg",
         className,
       )}
     >
-      <ImageHandler />
-      <div className="z-100 absolute inset-0 flex flex-col justify-end">
+      <CardImage />
+      <div className="absolute inset-0 z-30 flex flex-col justify-end">
         <div className=" flex h-1/4 w-full bg-[#333333] bg-opacity-50 bg-clip-padding p-4 text-white backdrop-blur-md backdrop-filter">
           <span className="text-sm">Cyberpunk 2077</span>
         </div>
