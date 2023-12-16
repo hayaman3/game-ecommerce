@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import HeroImage from "./_components/HeroImage";
 import TextBlock from "./_components/TextBlock";
-import Main from "@/_components/Main";
+import Main from "@/_components/Layout/Main";
 
 export type homeProps = {
   //no props

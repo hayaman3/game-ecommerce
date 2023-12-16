@@ -1,21 +1,13 @@
 "use client";
 import React, { FunctionComponent } from "react";
-import TiltCard from "./TiltCard";
-import ProductCard from "@/_components/ProductCard";
-
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import ImageHandler from "@/_components/ImageHandler";
-import { twMerge } from "tailwind-merge";
+import CardImage from "@/_components/Card/CardImage";
 
 export type HeroImageProps = {
   //no props
 };
 
 const HeroImage: FunctionComponent<HeroImageProps> = ({}) => {
-  // <TiltCard>
-  //   <ProductCard className="hover:border-0 hover:border-none hover:backdrop-blur-none" />
-  // </TiltCard>
-
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -67,19 +59,14 @@ const HeroImage: FunctionComponent<HeroImageProps> = ({}) => {
     >
       <div
         style={{
-          transform: "translateZ(75px)",
+          transform: "translateZ(60px)",
           transformStyle: "preserve-3d",
         }}
         className="absolute inset-4 overflow-hidden rounded-xl shadow-lg transition"
       >
-        <div
-          className={twMerge(
-            "hover:border-deep-purple-400 relative flex h-96 w-72 overflow-hidden rounded-lg border-[1px] border-solid border-transparent shadow-lg backdrop-filter hover:backdrop-blur-lg",
-            "hover:border-0 hover:border-none hover:backdrop-blur-none",
-          )}
-        >
-          <ImageHandler />
-          <div className="z-100 absolute inset-0 flex flex-col justify-end">
+        <div className="hover:border-deep-purple-400 relative flex h-96 w-72 overflow-hidden rounded-lg border-[1px] border-solid border-transparent shadow-lg backdrop-filter hover:border-0 hover:border-none hover:backdrop-blur-none">
+          <CardImage />
+          <div className="absolute inset-0 flex flex-col justify-end">
             <div className=" flex h-1/4 w-full bg-[#333333] bg-opacity-50 bg-clip-padding p-4 text-white backdrop-blur-md backdrop-filter">
               <span className="text-sm">Cyberpunk 2077</span>
             </div>

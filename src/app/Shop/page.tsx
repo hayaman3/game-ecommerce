@@ -1,5 +1,5 @@
 "use client";
-import Main from "@/_components/Main";
+import Main from "@/_components/Layout/Main";
 import {
   QueryClient,
   QueryClientProvider,
@@ -20,7 +20,9 @@ const Shop: FunctionComponent<shopProps> = ({}) => {
   return (
     <QueryClientProvider client={queryClient}>
       <Main>
-        <div className="grid"><TrialApp /></div>
+        <div className="grid">
+          <TrialApp />
+        </div>
       </Main>
     </QueryClientProvider>
   );

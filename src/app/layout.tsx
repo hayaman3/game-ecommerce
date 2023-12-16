@@ -31,7 +31,6 @@ export default function RootLayout({
   );
 }
 
-
 // const queryClient = new QueryClient();
 
 // <QueryClientProvider client={queryClient}>
