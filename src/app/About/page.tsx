@@ -1,4 +1,4 @@
-import Main from "@/_components/Main";
+import Main from "@/_components/Layout/Main";
 import React, { FunctionComponent } from "react";
 
 export type aboutProps = {

@@ -23,6 +23,9 @@ const config: Config = {
 					900: '#121212',
 				},
 			},
+			screens: {
+				xs: '450px',
+			},
 		},
 	},
 	plugins: [],

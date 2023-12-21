@@ -9,7 +9,7 @@ export type homeProps = {
 
 const Home: FunctionComponent<homeProps> = ({}) => {
   return (
-    <Main>
+    <Main className="xs:mt-24">
       <TextBlock />
       <HeroImage />
     </Main>

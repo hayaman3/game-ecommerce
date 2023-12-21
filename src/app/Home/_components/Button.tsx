@@ -15,7 +15,7 @@ const buttonVariants = cva(
           "bg-transparent border-[1px]  text-white shadow-[1.55px_4px_15.5px_0px_rgba(0,0,0,0.25)] hover:bg-dark-700",
       },
       size: {
-        default: "rounded-lg text-base px-10 py-2 font-bold",
+        default: "rounded-lg text-sm xs:text-base px-10 py-2 font-bold",
       },
     },
     defaultVariants: {
