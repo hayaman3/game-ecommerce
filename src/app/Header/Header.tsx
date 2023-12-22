@@ -2,15 +2,11 @@
 import React, { FunctionComponent, useState } from "react";
 import Logo from "./_components/Logo";
 import PageNav from "./_components/PageNav";
-import CartControl from "./_components/CartControl";
+import Cart from "./_components/Cart";
 import CartButton from "./_components/CartButton";
 
-export type HeaderProps = {
-  //no props
-};
-
-const Header: FunctionComponent<HeaderProps> = ({}) => {
-  const [openDrawer, setOpenDrawer] = useState(false);
+const Header: FunctionComponent = ({}) => {
+  const [openDrawer, setOpenDrawer] = useState(true);
 
   const toggleCartDrawer = () => {
     setOpenDrawer((prevState) => !openDrawer);
@@ -18,29 +14,16 @@ const Header: FunctionComponent<HeaderProps> = ({}) => {
 
   return (
     <>
-      <header className="xs:top-0 xs:inset-x-0 xs:px-10 fixed inset-x-0 bottom-0 z-30 h-fit w-full bg-dark-100 px-2 py-4 shadow">
+      <header className="fixed inset-x-0 bottom-0 z-30 h-fit w-full bg-dark-100 px-2 py-4 shadow xs:inset-x-0 xs:top-0 xs:px-10">
         <div className="m-auto flex max-w-[1280px] items-center justify-between gap-2 ">
           <Logo />
           <div className="flex flex-row items-center justify-between gap-4">
             <PageNav />
-            <CartButton onClick={toggleCartDrawer} />
+            <CartButton toggleCartDrawer={toggleCartDrawer} />
           </div>
         </div>
       </header>
-      {openDrawer ? (
-        <>
-          <div
-            className="fixed inset-0 z-40 bg-black opacity-50"
-            onClick={toggleCartDrawer}
-          ></div>
-          <div className="absolute right-0 top-0 z-50 min-h-screen w-1/4 bg-black">
-            <button className="" onClick={toggleCartDrawer}>
-              Close
-            </button>
-            DRAWER
-          </div>
-        </>
-      ) : null}
+      {openDrawer ? <Cart toggleCartDrawer={toggleCartDrawer} /> : null}
     </>
   );
 };

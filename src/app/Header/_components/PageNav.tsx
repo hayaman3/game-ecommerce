@@ -2,9 +2,6 @@
 import { FunctionComponent } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import HomeIcon from "../_icons/HomeIcon";
-import ShopIcon from "../_icons/ShopIcon";
-import AboutIcon from "../_icons/AboutIcon";
 
 type Ttabs = {
   path: string;
@@ -29,21 +26,18 @@ const tabs: Ttabs[] = [
 const PageNav: FunctionComponent = () => {
   let pathname = usePathname() || "/";
   return (
-    <ul className="xs:gap-4 flex gap-2">
-      {tabs.map(({ path, title }, key) => {
+    <ul className="flex gap-4">
+      {tabs.map(({ path, title }) => {
         const isActive = path === pathname;
         return (
-          <li key={key}>
+          <li key={title}>
             <Link href={path}>
-              {/* <HomeIcon /> */}
-              {/* <ShopIcon /> */}
-              <AboutIcon />
               <span
-                className={`xs:text-base text-sm font-light text-[#e5e5e5] transition ease-in-out ${
-                  isActive ? "font-[700] " : ""
+                className={`text-sm text-[#e5e5e5] transition ease-in-out xs:block xs:text-base ${
+                  isActive ? "font-bold" : "font-light"
                 }`}
               >
-                {/* {title} */}
+                {title}
               </span>
             </Link>
           </li>
