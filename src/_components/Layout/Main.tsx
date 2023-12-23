@@ -10,7 +10,7 @@ const Main: FunctionComponent<mainProps> = ({ children, className }) => {
   return (
     <main
       className={twMerge(
-        "mx-auto mt-10 flex w-[clamp(350px,100%,1200px)] flex-wrap items-center justify-between gap-y-10 px-4 pb-24",
+        "mx-auto mt-10 flex w-[clamp(320px,100%,1200px)] flex-wrap items-center justify-between gap-y-10 pb-24 xs:px-4",
         className,
       )}
     >
