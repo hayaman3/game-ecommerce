@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import BackIcon from "../_icons/BackIcon";
 
 export type CartProps = {
   toggleCartDrawer: () => void;
@@ -13,7 +14,7 @@ const Cart: FunctionComponent<CartProps> = ({ toggleCartDrawer }) => {
       ></div>
       <div className="absolute right-0 top-0 z-50 h-full w-[clamp(350px,30vw,500px)] bg-dark-300 p-4 xs:p-6">
         <button className="" onClick={toggleCartDrawer}>
-          Close
+          <BackIcon />
         </button>
         DRAWER
       </div>
