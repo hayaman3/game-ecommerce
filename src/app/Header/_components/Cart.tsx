@@ -42,24 +42,25 @@ const Cart: FunctionComponent<CartProps> = ({ toggleCartDrawer }) => {
           {mockData.map(({ title, image, price, quantity }) => (
             <div
               key={title}
-              className="flex w-full items-center justify-between rounded-lg bg-dark-100 p-2"
+              className="flex w-full items-center justify-between rounded-lg bg-dark-100 p-4 drop-shadow-md"
             >
-              {/* {image} */}
-              <div className="relative h-[150px] w-[150px]">
+              <div className="relative flex h-[150px] w-[150px] overflow-hidden rounded-lg border-[1px] border-solid border-transparent drop-shadow-md">
                 <Image
                   src="/test.jpg"
-                  // height="100"
-                  // width="100"
                   fill
-                  // objectFit="true"
-                  className="rounded-lg object-cover shadow-sm"
-                  alt="test"
+                  className="overflow-hidden rounded-lg object-cover shadow-sm "
+                  alt={title}
                 />
-                <span className="absolute -right-[6px] bottom-0">
-                  X {quantity}
-                </span>
+                <div className="absolute bottom-0 w-full bg-[#333333] bg-opacity-50 bg-clip-padding p-1 text-center backdrop-blur-md backdrop-filter">
+                  <span className="overflow-hidden text-ellipsis text-xs">
+                    {title}
+                  </span>
+                </div>
               </div>
-              <div>{title}</div>
+
+              <button>-</button>
+              <span>{quantity}</span>
+              <button>+</button>
               <div>{price}</div>
             </div>
           ))}
