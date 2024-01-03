@@ -13,10 +13,10 @@ const CardImage: FunctionComponent<TCardImage> = ({
   return (
     <Image
       src={imageSrc}
-      layout="fill"
-      objectFit="cover"
+      fill
+      // objectFit="cover"
       alt={title}
-      className="-z-10"
+      className="-z-10 object-cover"
     />
   );
 };
