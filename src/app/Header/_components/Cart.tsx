@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import BackIcon from "../_icons/BackIcon";
 import CartCard from "./CartCard";
 
@@ -28,6 +28,15 @@ export type CartProps = {
 };
 
 const Cart: FunctionComponent<CartProps> = ({ toggleCartDrawer }) => {
+  const [items, setItems] = useState([] || null);
+
+  useEffect(() => {
+    const storedItems = localStorage.getItem("items");
+    if (storedItems) {
+      setItems(JSON.parse(storedItems));
+    }
+  }, []);
+
   return (
     <>
       <div
@@ -38,6 +47,13 @@ const Cart: FunctionComponent<CartProps> = ({ toggleCartDrawer }) => {
         <button className="" onClick={toggleCartDrawer}>
           <BackIcon />
         </button>
+        {/* {items ? (
+          <div className="flex flex-col gap-4">
+            {mockData.map(({ title, image, price, quantity }) => (
+              <CartCard title={title} quantity={quantity} price={price} />
+            ))}
+          </div>
+        ) : null} */}
         <div className="flex flex-col gap-4">
           {mockData.map(({ title, image, price, quantity }) => (
             <CartCard title={title} quantity={quantity} price={price} />
