@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Image from "next/image";
+import Quantity from "./Quantity";
 
 export type CartCardProps = {
   title: string;
@@ -28,9 +29,10 @@ const CartCard: FunctionComponent<CartCardProps> = ({
           <span className="overflow-hidden text-ellipsis text-xs">{title}</span>
         </div>
       </div>
-      <button>-</button>
+      <Quantity title={title} quantity={quantity} />
+      {/* <button>-</button>
       <span>{quantity}</span>
-      <button>+</button>
+      <button>+</button> */}
       <div>{price}</div>
     </div>
   );
