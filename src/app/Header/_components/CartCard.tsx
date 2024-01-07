@@ -14,10 +14,7 @@ const CartCard: FunctionComponent<CartCardProps> = ({
   price,
 }) => {
   return (
-    <div
-      key={title}
-      className="flex w-full items-center justify-between rounded-lg bg-dark-100 p-4 drop-shadow-md"
-    >
+    <div className="flex w-full items-center justify-between rounded-lg bg-dark-100 p-4 drop-shadow-md">
       <div className="relative flex h-[150px] w-[150px] overflow-hidden rounded-lg border-[1px] border-solid border-transparent drop-shadow-md">
         <Image
           src="/test.jpg"

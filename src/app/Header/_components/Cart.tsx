@@ -2,26 +2,13 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import BackIcon from "../_icons/BackIcon";
 import CartCard from "./CartCard";
 
-const mockData = [
-  {
-    title: "Game1",
-    image: "Image",
-    price: 5,
-    quantity: 1,
-  },
-  {
-    title: "Game2",
-    image: "Image",
-    price: 10,
-    quantity: 2,
-  },
-  {
-    title: "Game3",
-    image: "Image",
-    price: 15,
-    quantity: 3,
-  },
-];
+const mockData = {
+  Game1: { image: "Image", quantity: 1, price: 5 },
+  Game2: { image: "Image", quantity: 2, price: 25 },
+  Game3: { image: "Image", quantity: 3, price: 15 },
+};
+
+const localStorageKey = "GAME_ECOM";
 
 export type CartProps = {
   toggleCartDrawer: () => void;
@@ -31,10 +18,12 @@ const Cart: FunctionComponent<CartProps> = ({ toggleCartDrawer }) => {
   const [items, setItems] = useState([] || null);
 
   useEffect(() => {
-    const storedItems = localStorage.getItem("items");
-    if (storedItems) {
-      setItems(JSON.parse(storedItems));
-    }
+    // const storedItems = localStorage.getItem("items");
+    // if (storedItems) {
+    //   setItems(JSON.parse(storedItems));
+    //   console.log(JSON.parse(storedItems));
+    // }
+    // // localStorage.setItem("items", JSON.stringify({ GAME_ECOM }));
   }, []);
 
   return (
@@ -47,18 +36,20 @@ const Cart: FunctionComponent<CartProps> = ({ toggleCartDrawer }) => {
         <button className="" onClick={toggleCartDrawer}>
           <BackIcon />
         </button>
-        {/* {items ? (
+        {items ? (
           <div className="flex flex-col gap-4">
-            {mockData.map(({ title, image, price, quantity }) => (
-              <CartCard title={title} quantity={quantity} price={price} />
-            ))}
+            {Object.entries(mockData).map(
+              ([title, { image, price, quantity }]) => (
+                <CartCard
+                  title={title}
+                  quantity={quantity}
+                  price={price}
+                  key={title}
+                />
+              ),
+            )}
           </div>
-        ) : null} */}
-        <div className="flex flex-col gap-4">
-          {mockData.map(({ title, image, price, quantity }) => (
-            <CartCard title={title} quantity={quantity} price={price} />
-          ))}
-        </div>
+        ) : null}
       </div>
     </>
   );
