@@ -8,7 +8,7 @@ const mockData = {
   Game3: { image: "Image", quantity: 3, price: 15 },
 };
 
-const localStorageKey = "GAME_ECOM";
+const USER_CART_KEY = "cartkey";
 
 export type CartProps = {
   toggleCartDrawer: () => void;
@@ -23,7 +23,7 @@ const Cart: FunctionComponent<CartProps> = ({ toggleCartDrawer }) => {
     //   setItems(JSON.parse(storedItems));
     //   console.log(JSON.parse(storedItems));
     // }
-    // // localStorage.setItem("items", JSON.stringify({ GAME_ECOM }));
+    localStorage.setItem(USER_CART_KEY, JSON.stringify(mockData));
   }, []);
 
   return (
