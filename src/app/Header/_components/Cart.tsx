@@ -15,7 +15,7 @@ export type CartProps = {
 };
 
 const Cart: FunctionComponent<CartProps> = ({ toggleCartDrawer }) => {
-  const [items, setItems] = useState([] || null);
+  const [items, setItems] = useState({} || null);
 
   useEffect(() => {
     // const storedItems = localStorage.getItem("items");
@@ -29,11 +29,11 @@ const Cart: FunctionComponent<CartProps> = ({ toggleCartDrawer }) => {
   return (
     <>
       <div
-        className="fixed inset-0 z-40 bg-black opacity-50"
+        className="fixed inset-0 z-40 h-full bg-black opacity-50"
         onClick={toggleCartDrawer}
       ></div>
-      <div className="absolute right-0 top-0 z-50 min-h-full w-[clamp(350px,30vw,500px)] bg-dark-300 p-4 xs:p-6">
-        <button className="" onClick={toggleCartDrawer}>
+      <div className="absolute right-0 top-0 z-50 min-h-full w-[clamp(350px,30vw,400px)] bg-dark-300 p-4 xs:p-6">
+        <button className="mb-8" onClick={toggleCartDrawer}>
           <BackIcon />
         </button>
         {items ? (

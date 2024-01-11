@@ -27,9 +27,6 @@ const CartCard: FunctionComponent<CartCardProps> = ({
         </div>
       </div>
       <Quantity title={title} quantity={quantity} />
-      {/* <button>-</button>
-      <span>{quantity}</span>
-      <button>+</button> */}
       <div>{price}</div>
     </div>
   );
