@@ -1,5 +1,7 @@
 "use client";
 import React, { FunctionComponent, useState, useEffect } from "react";
+import UpIcon from "../_icons/UpIcon";
+import DownIcon from "../_icons/DownIcon";
 
 export type QuantityProps = {
   title: string;
@@ -7,8 +9,6 @@ export type QuantityProps = {
 };
 
 const USER_CART_KEY = "cartkey";
-const localStorageCall = localStorage.getItem(USER_CART_KEY) || "{}";
-const localStorageData = JSON.parse(localStorageCall);
 
 const Quantity: FunctionComponent<QuantityProps> = ({
   title,
@@ -16,19 +16,17 @@ const Quantity: FunctionComponent<QuantityProps> = ({
 }) => {
   const [quantity, setQuantity] = useState(initialQuantity);
 
-  const handleQuantityChange = (title: string, newQuantity: number) => {
-    // Update the quantity in the local storage data
-    localStorageData[title].quantity = newQuantity;
-
-    // Save the updated data back to local storage
-    localStorage.setItem(USER_CART_KEY, JSON.stringify(localStorageData));
-  };
+  // const handleQuantityChange = (title: string, newQuantity: number) => {
+  //   // Update the quantity in the local storage data
+  //   localStorageData[title].quantity = newQuantity;
+  //   // Save the updated data back to local storage
+  //   localStorage.setItem(USER_CART_KEY, JSON.stringify(localStorageData));
+  // };
 
   useEffect(() => {
-    // Update the quantity in the local storage data
+    const localStorageCall = localStorage.getItem(USER_CART_KEY) || "{}";
+    const localStorageData = JSON.parse(localStorageCall);
     localStorageData[title].quantity = quantity;
-
-    // Save the updated data back to local storage
     localStorage.setItem(USER_CART_KEY, JSON.stringify(localStorageData));
   }, [quantity]);
 
@@ -47,10 +45,10 @@ const Quantity: FunctionComponent<QuantityProps> = ({
       <span className="text-lg">{quantity}</span>
       <div className="flex flex-col">
         <button className="" onClick={() => handleIncrease()}>
-          +
+          <UpIcon />
         </button>
         <button className="" onClick={handleDecrease}>
-          -
+          <DownIcon />
         </button>
       </div>
     </div>
