@@ -2,29 +2,35 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import BackIcon from "../_icons/BackIcon";
 import CartCard from "./CartCard";
 
-const mockData = {
-  Game1: { image: "Image", quantity: 1, price: 5 },
-  Game2: { image: "Image", quantity: 2, price: 25 },
-  Game3: { image: "Image", quantity: 3, price: 15 },
-};
-
 const USER_CART_KEY = "cartkey";
 
 export type CartProps = {
   toggleCartDrawer: () => void;
 };
 
+type CartItem = {
+  image: string;
+  price: number;
+  quantity: number;
+};
+
 const Cart: FunctionComponent<CartProps> = ({ toggleCartDrawer }) => {
   const [items, setItems] = useState({} || null);
 
   useEffect(() => {
-    // const storedItems = localStorage.getItem("items");
-    // if (storedItems) {
-    //   setItems(JSON.parse(storedItems));
-    //   console.log(JSON.parse(storedItems));
-    // }
-    localStorage.setItem(USER_CART_KEY, JSON.stringify(mockData));
+    const storedItems = GetItems();
+    if (storedItems) {
+      setItems(storedItems);
+    }
   }, []);
+
+  const GetItems = () => {
+    const items = localStorage.getItem(USER_CART_KEY);
+    if (items) {
+      return JSON.parse(items);
+    }
+    return null;
+  };
 
   return (
     <>
@@ -38,16 +44,18 @@ const Cart: FunctionComponent<CartProps> = ({ toggleCartDrawer }) => {
         </button>
         {items ? (
           <div className="flex flex-col gap-4">
-            {Object.entries(mockData).map(
-              ([title, { image, price, quantity }]) => (
+            {Object.entries(items).map(([title, item]) => {
+              const { image, price, quantity } = item as CartItem;
+              return (
                 <CartCard
+                  image={image}
                   title={title}
                   quantity={quantity}
                   price={price}
                   key={title}
                 />
-              ),
-            )}
+              );
+            })}
           </div>
         ) : null}
       </div>

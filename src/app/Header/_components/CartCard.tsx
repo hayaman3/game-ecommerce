@@ -3,12 +3,14 @@ import Image from "next/image";
 import Quantity from "./Quantity";
 
 export type CartCardProps = {
+  image: string;
   title: string;
   quantity: number;
   price: number;
 };
 
 const CartCard: FunctionComponent<CartCardProps> = ({
+  image,
   title,
   quantity,
   price,
