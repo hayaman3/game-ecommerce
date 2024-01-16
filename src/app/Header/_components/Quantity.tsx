@@ -16,13 +16,6 @@ const Quantity: FunctionComponent<QuantityProps> = ({
 }) => {
   const [quantity, setQuantity] = useState(initialQuantity);
 
-  // const handleQuantityChange = (title: string, newQuantity: number) => {
-  //   // Update the quantity in the local storage data
-  //   localStorageData[title].quantity = newQuantity;
-  //   // Save the updated data back to local storage
-  //   localStorage.setItem(USER_CART_KEY, JSON.stringify(localStorageData));
-  // };
-
   useEffect(() => {
     const localStorageCall = localStorage.getItem(USER_CART_KEY) || "{}";
     const localStorageData = JSON.parse(localStorageCall);
@@ -43,7 +36,7 @@ const Quantity: FunctionComponent<QuantityProps> = ({
   return (
     <div className="g-2 flex flex-row items-center justify-center text-[#dbdbdb]">
       <span className="text-lg">{quantity}</span>
-      <div className="flex flex-col">
+      <div className="flex flex-col ">
         <button className="" onClick={() => handleIncrease()}>
           <UpIcon />
         </button>
