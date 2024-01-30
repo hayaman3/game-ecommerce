@@ -10,7 +10,7 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({ className }) => {
   return (
     <div
       className={twMerge(
-        "hover:border-deep-purple-400 relative flex h-96 w-72 overflow-hidden rounded-lg border-[1px] border-solid border-transparent shadow-lg backdrop-filter hover:backdrop-blur-lg",
+        "relative flex h-[22rem] w-[16rem] overflow-hidden rounded-lg border-[1px] border-solid border-transparent shadow-lg backdrop-filter",
         className,
       )}
     >

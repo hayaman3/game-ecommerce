@@ -7,7 +7,7 @@ export type ProductsProps = {
 async function getProducts() {
   const response = await fetch("https://dummyjson.com/products"); // fetch the products
   const data = await response.json(); // convert the response to json
-  setProducts(data.products); // set the products in the state to the products we fetched
+  // setProducts(data.products); // set the products in the state to the products we fetched
 }
 
 const RawgAPI = async () => {

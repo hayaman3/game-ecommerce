@@ -110,12 +110,10 @@ export type TShopProps = {
 
 const Shop: FunctionComponent<TShopProps> = ({}) => {
   return (
-    <Main>
-      {/* <Card> */}
+    <Main className="xs:mt-24">
       <div className="grid">
         <ProductCard />
       </div>
-      {/* </Card> */}
     </Main>
   );
 };
