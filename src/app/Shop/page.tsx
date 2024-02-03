@@ -112,7 +112,7 @@ const Shop: FunctionComponent<TShopProps> = ({}) => {
   return (
     <Main className="xs:mt-24">
       <div className="grid">
-        <ProductCard />
+        <ProductCard title={"Cyberpunk 2077"} />
       </div>
     </Main>
   );
