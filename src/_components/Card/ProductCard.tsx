@@ -12,7 +12,7 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({
   className,
 }) => {
   const priceGenerator = (title: string): string => {
-    const vowels = "aeiouAEIOUyY";
+    const vowels = "aeiouAEIOUyYtTnNsS";
     let totalPrice = 0;
 
     for (let i = 0; i < title.length; i++) {
