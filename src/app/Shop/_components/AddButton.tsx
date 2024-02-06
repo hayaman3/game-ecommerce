@@ -1,14 +1,17 @@
 import React, { FunctionComponent } from "react";
 
 export type AddButtonProps = {
-  //no props
+  title: string;
+  onClickEvent: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const AddButton: FunctionComponent<AddButtonProps> = ({}) => {
+const AddButton: FunctionComponent<AddButtonProps> = ({
+  title,
+  onClickEvent,
+}) => {
   return (
-    <button className="bg-[#37F1A6] text-black">
-      {/* <Icon/> */}
-      Icon
+    <button onClick={onClickEvent} className="bg-[#37F1A6] text-black">
+      {title}
     </button>
   );
 };
