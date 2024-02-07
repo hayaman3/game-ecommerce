@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 
 export type AddButtonProps = {
   title: string;
-  onClickEvent: React.MouseEventHandler<HTMLButtonElement>;
+  onClickEvent: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const AddButton: FunctionComponent<AddButtonProps> = ({
