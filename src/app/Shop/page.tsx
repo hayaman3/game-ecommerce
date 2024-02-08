@@ -104,6 +104,13 @@ import Main from "@/_components/Layout/Main";
 
 import React, { FunctionComponent } from "react";
 
+const mockData = [
+  { title: "Cyberpunk2077", src: "/test.jpg" },
+  { title: "Cyber078", src: "/test.jpg" },
+  { title: "erpunk2077", src: "/test.jpg" },
+  { title: "Cybeunk2", src: "/test.jpg" },
+  { title: "Cpunk2077", src: "/test.jpg" },
+];
 export type TShopProps = {
   //no props
 };
@@ -111,8 +118,10 @@ export type TShopProps = {
 const Shop: FunctionComponent<TShopProps> = ({}) => {
   return (
     <Main className="xs:mt-24">
-      <div className="grid">
-        <ProductCard title={"Cyberpunk 2077"} />
+      <div className="grid gap-2">
+        {mockData.map(({ title, src }) => (
+          <ProductCard key={title} title={title} src={src} />
+        ))}
       </div>
     </Main>
   );

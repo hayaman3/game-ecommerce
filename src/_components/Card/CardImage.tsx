@@ -2,17 +2,17 @@ import React, { FunctionComponent } from "react";
 import Image from "next/image";
 
 export type TCardImage = {
-  imageSrc?: string;
-  title?: string;
+  src: string;
+  title: string;
 };
 
 const CardImage: FunctionComponent<TCardImage> = ({
-  imageSrc = "/test.jpg",
+  src = "/test.jpg",
   title = "Image",
 }) => {
   return (
     <Image
-      src={imageSrc}
+      src={src}
       fill
       // objectFit="cover"
       alt={title}
