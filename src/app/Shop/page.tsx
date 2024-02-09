@@ -102,7 +102,8 @@ import Main from "@/_components/Layout/Main";
 
 // // export default Products;
 
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
+import Search from "./_components/Search";
 
 const mockData = [
   { title: "Cyberpunk2077", src: "/test.jpg" },
@@ -116,10 +117,22 @@ export type TShopProps = {
 };
 
 const Shop: FunctionComponent<TShopProps> = ({}) => {
+  const [filteredData, setFilteredData] = useState(mockData);
+
+  const handleSearch = (searchQuery: string) => {
+    const filteredResults = mockData.filter((item) =>
+      item.title.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
+    setFilteredData(filteredResults);
+  };
   return (
     <Main className="xs:mt-24">
       <div className="grid gap-2">
-        {mockData.map(({ title, src }) => (
+        <Search />
+        {/* {mockData.map(({ title, src }) => (
+          <ProductCard key={title} title={title} src={src} />
+        ))} */}
+        {filteredData.map(({ title, src }) => (
           <ProductCard key={title} title={title} src={src} />
         ))}
       </div>
