@@ -103,6 +103,7 @@ import Main from "@/_components/Layout/Main";
 // // export default Products;
 
 import React, { FunctionComponent, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Search from "./_components/Search";
 
 const mockData = [
@@ -117,6 +118,21 @@ export type TShopProps = {
 };
 
 const Shop: FunctionComponent<TShopProps> = ({}) => {
+  // const { isLoading, error, data } = useQuery('todos', fetchTodos);
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["rawgAPI"],
+    // queryFn: getProducts,
+  });
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (isError) {
+    return <p>Error loading products</p>;
+  }
+
   const [filteredData, setFilteredData] = useState(mockData);
 
   const handleSearch = (searchQuery: string) => {
