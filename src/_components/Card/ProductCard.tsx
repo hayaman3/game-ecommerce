@@ -5,14 +5,9 @@ import { twMerge } from "tailwind-merge";
 export type ProductCardProps = {
   title: string;
   src: string;
-  className?: string;
 };
 
-const ProductCard: FunctionComponent<ProductCardProps> = ({
-  title,
-  src,
-  className,
-}) => {
+const ProductCard: FunctionComponent<ProductCardProps> = ({ title, src }) => {
   const priceGenerator = (title: string): string => {
     const vowels = "aeiouAEIOUyYtTnNsS";
     let totalPrice = 0;
@@ -31,12 +26,7 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({
   const price = priceGenerator(title);
 
   return (
-    <div
-      className={twMerge(
-        "relative flex h-[22rem] w-[16rem] overflow-hidden rounded-lg border-[1px] border-solid border-transparent shadow-lg backdrop-filter",
-        className,
-      )}
-    >
+    <div className="relative flex h-[22rem] w-[16rem] overflow-hidden rounded-lg border-[1px] border-solid border-transparent shadow-lg backdrop-filter">
       <CardImage src={src} title={title} />
       <div className="absolute inset-0 z-30 flex flex-col justify-end">
         <div className=" flex h-1/4 w-full bg-[#333333] bg-opacity-50 bg-clip-padding p-4 text-white backdrop-blur-md backdrop-filter">
