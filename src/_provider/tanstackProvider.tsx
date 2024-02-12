@@ -6,7 +6,7 @@ export type tanstackProviderProps = {
   children: ReactNode;
 };
 
-const tanstackProvider: FunctionComponent<tanstackProviderProps> = ({
+const useTanstackProvider: FunctionComponent<tanstackProviderProps> = ({
   children,
 }) => {
   const [queryClient] = React.useState(() => new QueryClient());
@@ -15,4 +15,4 @@ const tanstackProvider: FunctionComponent<tanstackProviderProps> = ({
   );
 };
 
-export default tanstackProvider;
+export default useTanstackProvider;

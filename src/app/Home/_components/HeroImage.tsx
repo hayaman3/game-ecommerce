@@ -1,7 +1,7 @@
 "use client";
 import React, { FunctionComponent } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import CardImage from "@/_components/Card/CardImage";
+import CardImage from "./CardImage";
 
 export type HeroImageProps = {
   //no props

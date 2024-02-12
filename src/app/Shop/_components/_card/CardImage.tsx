@@ -13,10 +13,13 @@ const CardImage: FunctionComponent<TCardImage> = ({
   return (
     <Image
       src={src}
-      fill
+      // fill
+      width={500}
+      height={256}
       // objectFit="cover"
+      layout="responsive"
       alt={title}
-      className="-z-10 object-cover"
+      className=" object-cover hover:scale-150 hover:cursor-pointer hover:border-[59px] hover:border-red-100"
     />
   );
 };

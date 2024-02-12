@@ -1,5 +1,5 @@
 "use client";
-import ProductCard from "@/_components/Card/ProductCard";
+// import ProductCard from "@/_components/Card/ProductCard";
 import Main from "@/_components/Layout/Main";
 // import {
 //   QueryClient,
@@ -105,6 +105,7 @@ import Main from "@/_components/Layout/Main";
 import React, { FunctionComponent, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Search from "./_components/Search";
+import ProductCard from "./_components/_card/ProductCard";
 
 const mockData = [
   { title: "Cyberpunk2077", src: "/test.jpg" },
@@ -120,18 +121,18 @@ export type TShopProps = {
 const Shop: FunctionComponent<TShopProps> = ({}) => {
   // const { isLoading, error, data } = useQuery('todos', fetchTodos);
 
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["rawgAPI"],
-    // queryFn: getProducts,
-  });
+  // const { data, isLoading, isError } = useQuery({
+  //   queryKey: ["rawgAPI"],
+  //   // queryFn: getProducts,
+  // });
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  // if (isLoading) {
+  //   return <p>Loading...</p>;
+  // }
 
-  if (isError) {
-    return <p>Error loading products</p>;
-  }
+  // if (isError) {
+  //   return <p>Error loading products</p>;
+  // }
 
   const [filteredData, setFilteredData] = useState(mockData);
 
@@ -144,7 +145,7 @@ const Shop: FunctionComponent<TShopProps> = ({}) => {
   return (
     <Main className="xs:mt-24">
       <div className="grid gap-2">
-        <Search />
+        {/* <Search /> */}
         {/* {mockData.map(({ title, src }) => (
           <ProductCard key={title} title={title} src={src} />
         ))} */}
