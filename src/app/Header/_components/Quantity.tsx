@@ -21,14 +21,14 @@ const Quantity: FunctionComponent<QuantityProps> = ({
     const localStorageData = JSON.parse(localStorageCall);
     localStorageData[title].quantity = quantity;
     localStorage.setItem(USER_CART_KEY, JSON.stringify(localStorageData));
-  }, [quantity]);
+  });
 
   const handleIncrease = () => {
     setQuantity(quantity + 1);
   };
 
   const handleDecrease = () => {
-    if (quantity > 0) {
+    if (quantity != 1) {
       setQuantity(quantity - 1);
     }
   };
@@ -40,8 +40,12 @@ const Quantity: FunctionComponent<QuantityProps> = ({
         <button className="" onClick={() => handleIncrease()}>
           <UpIcon />
         </button>
-        <button className="" onClick={handleDecrease}>
-          <DownIcon />
+        <button className="" onClick={handleDecrease} disabled={quantity === 1}>
+          <DownIcon
+            className={`${
+              quantity === 1 ? "cursor-not-allowed opacity-40" : ""
+            }`}
+          />
         </button>
       </div>
     </div>
