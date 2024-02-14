@@ -105,7 +105,7 @@ import Main from "@/_components/Layout/Main";
 import React, { FunctionComponent, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Search from "./_components/Search";
-import ProductCard from "./_components/_card/ProductCard";
+import ProductCard from "./_components/ProductCard";
 
 const mockData = [
   { title: "Cyberpunk2077", src: "/test.jpg" },
