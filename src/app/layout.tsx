@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`flex flex-col bg-dark-300 text-white ${inter.className}`}
+        className={`flex h-full flex-col bg-dark-300 text-white ${inter.className}`}
       >
         <Header />
         {children}

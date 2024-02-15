@@ -50,6 +50,7 @@
 // export default page;
 
 import React, { FunctionComponent } from "react";
+import Image from "next/image";
 import { Button, LinkButton } from "./Test";
 
 export type pageProps = {
@@ -59,8 +60,20 @@ export type pageProps = {
 const page: FunctionComponent<pageProps> = ({}) => {
   return (
     <>
-      <Button>Button</Button>
-      <LinkButton href="/Test">Button</LinkButton>
+      {/* <Button>Button</Button>
+      <LinkButton href="/Test">Button</LinkButton> */}
+      <div className="mt-20">asd</div>
+      {/* <img src="../../../public/test.jpg" className="h-50 w-20" /> */}
+      <div className="h-[600px] w-[300px] overflow-hidden">
+        <Image
+          src="/test.jpg"
+          // fill
+          width={300}
+          height={600}
+          className=" overflow-hidden rounded-lg object-cover shadow-sm hover:scale-150"
+          alt=""
+        />
+      </div>
     </>
   );
 };

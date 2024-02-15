@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import CardImage from "./_card/ProductImage";
-import { twMerge } from "tailwind-merge";
 import ProductDetail from "./_card/ProductDetail";
 import priceGenerator from "../_utils/priceGenerator";
 
