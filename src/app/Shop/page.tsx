@@ -142,13 +142,15 @@ const Shop: FunctionComponent<TShopProps> = ({}) => {
     );
     setFilteredData(filteredResults);
   };
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const searchQuery = event.target.value;
+    handleSearch(searchQuery);
+  };
+
   return (
     <Main className="xs:mt-24">
       <div className="grid gap-2">
-        {/* <Search /> */}
-        {/* {mockData.map(({ title, src }) => (
-          <ProductCard key={title} title={title} src={src} />
-        ))} */}
+        <input type="text" placeholder="Search..." onChange={handleChange} />
         {filteredData.map(({ title, src }) => (
           <ProductCard key={title} title={title} src={src} />
         ))}
