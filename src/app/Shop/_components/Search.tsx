@@ -7,33 +7,31 @@ import React, {
 } from "react";
 
 export type SearchProps = {
-  //no props
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Search: FunctionComponent<SearchProps> = ({}) => {
-  const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState<string>("");
+const Search: FunctionComponent<SearchProps> = ({ handleChange }) => {
+  // const router = useRouter();
+  // const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
-  };
+  // const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setSearchQuery(event.target.value);
+  // };
 
-  const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  // const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
 
-    router.push(`/your-list-page?search=${encodeURIComponent(searchQuery)}`);
-  };
+  //   router.push(`/your-list-page?search=${encodeURIComponent(searchQuery)}`);
+  // };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <input
-        type="text"
-        // placeholder={placeholder}
-        value={searchQuery}
-        onChange={handleInputChange}
-      />
-      <button type="submit">Search</button>
-    </form>
+    <input
+      type="text"
+      // placeholder={placeholder}
+      // value={searchQuery}
+      onChange={handleChange}
+      className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+    />
   );
 };
 

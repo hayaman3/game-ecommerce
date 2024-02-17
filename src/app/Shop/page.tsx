@@ -110,9 +110,9 @@ import ProductCard from "./_components/ProductCard";
 const mockData = [
   { title: "Cyberpunk2077", src: "/test.jpg" },
   { title: "Cyber078", src: "/test.jpg" },
-  { title: "erpunk2077", src: "/test.jpg" },
-  { title: "Cybeunk2", src: "/test.jpg" },
-  { title: "Cpunk2077", src: "/test.jpg" },
+  { title: "asderpunk2077", src: "/test.jpg" },
+  { title: "Gpybeunk2", src: "/test.jpg" },
+  { title: "Cpsdak2077", src: "/test.jpg" },
 ];
 export type TShopProps = {
   //no props
@@ -142,6 +142,7 @@ const Shop: FunctionComponent<TShopProps> = ({}) => {
     );
     setFilteredData(filteredResults);
   };
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchQuery = event.target.value;
     handleSearch(searchQuery);
@@ -150,7 +151,8 @@ const Shop: FunctionComponent<TShopProps> = ({}) => {
   return (
     <Main className="xs:mt-24">
       <div className="grid gap-2">
-        <input type="text" placeholder="Search..." onChange={handleChange} />
+        {/* <input type="text" placeholder="Search..." onChange={handleChange} /> */}
+        <Search handleChange={handleChange} />
         {filteredData.map(({ title, src }) => (
           <ProductCard key={title} title={title} src={src} />
         ))}
