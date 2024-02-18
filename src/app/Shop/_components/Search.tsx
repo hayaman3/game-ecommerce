@@ -1,28 +1,25 @@
-import { useRouter } from "next/router";
-import React, {
-  ChangeEvent,
-  FormEvent,
-  FunctionComponent,
-  useState,
-} from "react";
+import React, { FunctionComponent, useState } from "react";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
 export type SearchProps = {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const Search: FunctionComponent<SearchProps> = ({ handleChange }) => {
-  // const router = useRouter();
-  // const [searchQuery, setSearchQuery] = useState<string>("");
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
 
-  // const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-  //   setSearchQuery(event.target.value);
-  // };
-
-  // const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-
-  //   router.push(`/your-list-page?search=${encodeURIComponent(searchQuery)}`);
-  // };
+  // const search = searchParams.get('search')
+  function handleSearch(term: string) {
+    const params = new URLSearchParams(searchParams);
+    if (term) {
+      params.set("query", term);
+    } else {
+      params.delete("query");
+    }
+    replace(`${pathname}?${params.toString()}`);
+  }
 
   return (
     <input
