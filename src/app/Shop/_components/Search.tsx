@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
 export type SearchProps = {
@@ -10,23 +10,28 @@ const Search: FunctionComponent<SearchProps> = ({ handleChange }) => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  // const search = searchParams.get('search')
+  const search = searchParams.get("search") || "";
+
   function handleSearch(term: string) {
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams.toString());
+
     if (term) {
-      params.set("query", term);
+      params.set("search", term);
     } else {
-      params.delete("query");
+      params.delete("search");
     }
+
     replace(`${pathname}?${params.toString()}`);
   }
 
   return (
     <input
       type="text"
-      // placeholder={placeholder}
-      // value={searchQuery}
-      onChange={handleChange}
+      value={search}
+      onChange={(e) => {
+        handleChange(e);
+        handleSearch(e.target.value);
+      }}
       className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
     />
   );

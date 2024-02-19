@@ -102,7 +102,8 @@ import Main from "@/_components/Layout/Main";
 
 // // export default Products;
 
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import Search from "./_components/Search";
 import ProductCard from "./_components/ProductCard";
@@ -134,7 +135,12 @@ const Shop: FunctionComponent<TShopProps> = ({}) => {
   //   return <p>Error loading products</p>;
   // }
 
+  const searchParams = useSearchParams();
   const [filteredData, setFilteredData] = useState(mockData);
+  useEffect(() => {
+    const initialSearchQuery = searchParams.get("search") || "";
+    handleSearch(initialSearchQuery);
+  }, []);
 
   const handleSearch = (searchQuery: string) => {
     const filteredResults = mockData.filter((item) =>
@@ -151,7 +157,6 @@ const Shop: FunctionComponent<TShopProps> = ({}) => {
   return (
     <Main className="xs:mt-24">
       <div className="grid gap-2">
-        {/* <input type="text" placeholder="Search..." onChange={handleChange} /> */}
         <Search handleChange={handleChange} />
         {filteredData.map(({ title, src }) => (
           <ProductCard key={title} title={title} src={src} />
