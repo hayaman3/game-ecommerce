@@ -136,22 +136,35 @@ const Shop: FunctionComponent<TShopProps> = ({}) => {
   // }
 
   const searchParams = useSearchParams();
-  const [filteredData, setFilteredData] = useState(mockData);
-  useEffect(() => {
-    const initialSearchQuery = searchParams.get("search") || "";
-    handleSearch(initialSearchQuery);
-  }, []);
 
-  const handleSearch = (searchQuery: string) => {
+  const checkSearchParams = () => {
+    const initialSearchQuery = searchParams.get("search");
+
+    if (initialSearchQuery) {
+      const filteredSearchResults = mockData.filter((item) =>
+        item.title.toLowerCase().includes(initialSearchQuery.toLowerCase()),
+      );
+      return filteredSearchResults;
+    }
+    return mockData;
+  };
+
+  const [filteredData, setFilteredData] = useState(checkSearchParams);
+
+  // const handleSearch = (searchQuery: string) => {
+  //   const filteredResults = mockData.filter((item) =>
+  //     item.title.toLowerCase().includes(searchQuery.toLowerCase()),
+  //   );
+  //   setFilteredData(filteredResults);
+  // };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const searchQuery = event.target.value;
+    // handleSearch(searchQuery);
     const filteredResults = mockData.filter((item) =>
       item.title.toLowerCase().includes(searchQuery.toLowerCase()),
     );
     setFilteredData(filteredResults);
-  };
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const searchQuery = event.target.value;
-    handleSearch(searchQuery);
   };
 
   return (
