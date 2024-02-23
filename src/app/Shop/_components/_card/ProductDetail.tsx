@@ -1,3 +1,4 @@
+import { Button } from "@/_components/Button";
 import React, { FunctionComponent } from "react";
 // import Button from "./Button";
 
@@ -17,8 +18,8 @@ const ProductDetail: FunctionComponent<ProductDetailProps> = ({
         <span className="text-sm">{price}</span>
       </div>
       <div className="flex">
-        {/* <Button />
-        <Button /> */}
+        <Button>asd</Button>
+        <Button>asd</Button>
       </div>
     </div>
   );
