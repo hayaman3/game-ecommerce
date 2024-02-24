@@ -1,5 +1,6 @@
 import { Button } from "@/_components/Button";
 import React, { FunctionComponent } from "react";
+import CartIcon from "../../_icons/CartIcon";
 // import Button from "./Button";
 
 export type ProductDetailProps = {
@@ -17,9 +18,11 @@ const ProductDetail: FunctionComponent<ProductDetailProps> = ({
         <span className="text-sm">{title}</span>
         <span className="text-sm">{price}</span>
       </div>
-      <div className="flex">
-        <Button>asd</Button>
-        <Button>asd</Button>
+      <div className="flex flex-row gap-2">
+        <Button>
+          <CartIcon />
+        </Button>
+        <Button>Buy Now</Button>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 "use client";
 import React, { FunctionComponent, useState, useEffect } from "react";
-import UpIcon from "../_icons/UpIcon";
-import DownIcon from "../_icons/DownIcon";
+import UpIcon from "../../_icons/UpIcon";
+import DownIcon from "../../_icons/DownIcon";
 
 export type QuantityProps = {
   title: string;

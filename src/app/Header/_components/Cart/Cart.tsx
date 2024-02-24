@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
-import BackIcon from "../_icons/BackIcon";
+import BackIcon from "../../_icons/BackIcon";
 import CartCard from "./CartCard";
 
 const USER_CART_KEY = "cartkey";

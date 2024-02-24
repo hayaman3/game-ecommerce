@@ -2,8 +2,8 @@
 import React, { FunctionComponent, useState } from "react";
 import Logo from "./_components/Logo";
 import PageNav from "./_components/PageNav";
-import Cart from "./_components/Cart";
-import CartButton from "./_components/CartButton";
+import Cart from "./_components/Cart/Cart";
+import CartButton from "./_components/Cart/CartButton";
 
 const Header: FunctionComponent = ({}) => {
   const [openDrawer, setOpenDrawer] = useState(true);

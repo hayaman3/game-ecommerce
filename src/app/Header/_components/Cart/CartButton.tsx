@@ -1,6 +1,6 @@
 "use client";
 import React, { FunctionComponent, useState } from "react";
-import CartIcon from "../_icons/CartIcon";
+import CartIcon from "../../_icons/CartIcon";
 
 export type CartButtonProps = {
   toggleCartDrawer: () => void;
