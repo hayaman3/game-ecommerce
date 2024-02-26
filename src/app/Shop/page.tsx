@@ -162,7 +162,8 @@ const Shop: FunctionComponent<TShopProps> = ({}) => {
   return (
     <Main className="xs:mt-24">
       <Search handleChange={handleChange} />
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] justify-center gap-8">
+      {/* <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))]  gap-8"> */}
+      <div className="mx-auto flex w-full  flex-wrap gap-8">
         {filteredData.map(({ title, src }) => (
           <ProductCard key={title} title={title} src={src} />
         ))}

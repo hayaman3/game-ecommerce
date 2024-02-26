@@ -6,7 +6,7 @@ import { cn } from "../../../../_lib/util";
 
 const buttonVariants = cva(
   // "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 dark:hover:bg-slate-800 dark:hover:text-slate-100 disabled:opacity-50 dark:focus:ring-slate-400 disabled:pointer-events-none dark:focus:ring-offset-slate-900 data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800",
-  "text-black rounded-md",
+  "text-black rounded-md ",
   {
     variants: {
       // variant: {
@@ -23,9 +23,9 @@ const buttonVariants = cva(
       //   link: "bg-transparent dark:bg-transparent underline-offset-4 hover:underline text-slate-900 dark:text-slate-300 hover:bg-transparent dark:hover:bg-transparent",
       // },
       variant: {
-        default: "bg-[#37F1A6] text-black font-medium ",
-        ghost:
-          "bg-transparent outline-1 outline text-white rounded-md px-4 py-2 outline-[#808080]",
+        default: "text-black font-medium ",
+        ghost: "",
+        // "bg-transparent hover:outline-1 hover:outline text-white rounded-md  outline-[#808080]",
       },
       // variant: {
       //   default:
