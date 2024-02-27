@@ -23,7 +23,7 @@ const buttonVariants = cva(
       //   link: "bg-transparent dark:bg-transparent underline-offset-4 hover:underline text-slate-900 dark:text-slate-300 hover:bg-transparent dark:hover:bg-transparent",
       // },
       variant: {
-        default: "text-black font-medium ",
+        default: "",
         ghost: "",
         // "bg-transparent hover:outline-1 hover:outline text-white rounded-md  outline-[#808080]",
       },

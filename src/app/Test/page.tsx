@@ -52,6 +52,7 @@
 import React, { FunctionComponent } from "react";
 import Image from "next/image";
 import { Button, LinkButton } from "./Test";
+import CartIcon from "../Shop/_icons/CartIcon";
 
 export type pageProps = {
   //no props
@@ -59,21 +60,29 @@ export type pageProps = {
 
 const page: FunctionComponent<pageProps> = ({}) => {
   return (
+    // <>
+    //   {/* <Button>Button</Button>
+    //   <LinkButton href="/Test">Button</LinkButton> */}
+    //   <div className="mt-20">asd</div>
+    //   {/* <img src="../../../public/test.jpg" className="h-50 w-20" /> */}
+    //   <div className="h-[600px] w-[300px] overflow-hidden">
+    //     <Image
+    //       src="/test.jpg"
+    //       // fill
+    //       width={300}
+    //       height={600}
+    //       className=" overflow-hidden rounded-lg object-cover shadow-sm hover:scale-150"
+    //       alt=""
+    //     />
+    //   </div>
+    // </>
     <>
-      {/* <Button>Button</Button>
-      <LinkButton href="/Test">Button</LinkButton> */}
-      <div className="mt-20">asd</div>
-      {/* <img src="../../../public/test.jpg" className="h-50 w-20" /> */}
-      <div className="h-[600px] w-[300px] overflow-hidden">
-        <Image
-          src="/test.jpg"
-          // fill
-          width={300}
-          height={600}
-          className=" overflow-hidden rounded-lg object-cover shadow-sm hover:scale-150"
-          alt=""
-        />
-      </div>
+      <div className="mt-16"></div>
+      <CartIcon className="text-blue-500" />
+      <CartIcon fill="red" />
+      <CartIcon className="h-[300px] w-[300px]" />
+      <CartIcon className="text-[300px]" />
+      <CartIcon className="" />
     </>
   );
 };
