@@ -1,36 +1,16 @@
 "use client";
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import CartIcon from "../../_icons/CartIcon";
 
-const USER_CART_KEY = "cartkey";
-
 export type CartButtonProps = {
+  cartQuantity: number | null;
   toggleCartDrawer: () => void;
 };
 
-interface CartItem {
-  quantity: number; // Replace with the actual type
-  // other properties...
-}
-
 const CartButton: FunctionComponent<CartButtonProps> = ({
+  cartQuantity,
   toggleCartDrawer,
 }) => {
-  // const [cartQuantity, setCartQuantity] = useState<number | null>(1);
-  const [cartQuantity, setCartQuantity] = useState<number | null>(1);
-
-  useEffect(() => {
-    const localStorageData = JSON.parse(
-      localStorage.getItem(USER_CART_KEY) || "{}",
-    ) as Record<string, CartItem>;
-    const totalQuantity = Object.values(localStorageData).reduce(
-      (acc, item) => acc + item.quantity,
-      0,
-    );
-
-    setCartQuantity(totalQuantity);
-  }, [cartQuantity]);
-
   return (
     <button className="relative" onClick={toggleCartDrawer}>
       <CartIcon />

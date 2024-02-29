@@ -1,12 +1,31 @@
 "use client";
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState, useEffect } from "react";
 import Logo from "./_components/Logo";
 import PageNav from "./_components/PageNav";
 import Cart from "./_components/Cart/Cart";
 import CartButton from "./_components/Cart/CartButton";
 
+const USER_CART_KEY = "cartkey";
+
+interface CartItem {
+  quantity: number;
+}
+
 const Header: FunctionComponent = ({}) => {
   const [openDrawer, setOpenDrawer] = useState(true);
+  const [cartQuantity, setCartQuantity] = useState<number | null>(1);
+
+  useEffect(() => {
+    const localStorageData = JSON.parse(
+      localStorage.getItem(USER_CART_KEY) || "{}",
+    ) as Record<string, CartItem>;
+    const totalQuantity = Object.values(localStorageData).reduce(
+      (acc, item) => acc + item.quantity,
+      0,
+    );
+
+    setCartQuantity(totalQuantity);
+  }, [cartQuantity]);
 
   const toggleCartDrawer = () => {
     setOpenDrawer((prevState) => !openDrawer);
@@ -19,7 +38,10 @@ const Header: FunctionComponent = ({}) => {
           <Logo />
           <div className="flex flex-row items-center justify-between gap-4">
             <PageNav />
-            <CartButton toggleCartDrawer={toggleCartDrawer} />
+            <CartButton
+              cartQuantity={cartQuantity}
+              toggleCartDrawer={toggleCartDrawer}
+            />
           </div>
         </div>
       </header>
