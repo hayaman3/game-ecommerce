@@ -3,7 +3,7 @@ import React, { FunctionComponent, useState } from "react";
 import CartIcon from "../../_icons/CartIcon";
 
 export type CartButtonProps = {
-  cartQuantity: number | null;
+  cartQuantity?: number | null;
   toggleCartDrawer: () => void;
 };
 

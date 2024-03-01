@@ -1,4 +1,10 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, {
+  Dispatch,
+  FunctionComponent,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import BackIcon from "../../_icons/BackIcon";
 import CartCard from "./CartCard";
 
@@ -6,6 +12,7 @@ const USER_CART_KEY = "cartkey";
 
 export type CartProps = {
   toggleCartDrawer: () => void;
+  setCartQuantity: Dispatch<SetStateAction<number | null | undefined>>;
 };
 
 type CartItem = {
@@ -14,7 +21,10 @@ type CartItem = {
   quantity: number;
 };
 
-const Cart: FunctionComponent<CartProps> = ({ toggleCartDrawer }) => {
+const Cart: FunctionComponent<CartProps> = ({
+  toggleCartDrawer,
+  setCartQuantity,
+}) => {
   const [items, setItems] = useState({} || null);
 
   useEffect(() => {
@@ -22,6 +32,15 @@ const Cart: FunctionComponent<CartProps> = ({ toggleCartDrawer }) => {
     if (storedItems) {
       setItems(storedItems);
     }
+    const localStorageData = JSON.parse(
+      localStorage.getItem(USER_CART_KEY) || "{}",
+    ) as Record<string, CartItem>;
+    const totalQuantity = Object.values(localStorageData).reduce(
+      (acc, item) => acc + item.quantity,
+      0,
+    );
+
+    setCartQuantity(totalQuantity);
   }, []);
 
   const GetItems = () => {

@@ -13,7 +13,7 @@ interface CartItem {
 
 const Header: FunctionComponent = ({}) => {
   const [openDrawer, setOpenDrawer] = useState(true);
-  const [cartQuantity, setCartQuantity] = useState<number | null>(1);
+  const [cartQuantity, setCartQuantity] = useState<number | null>();
 
   useEffect(() => {
     const localStorageData = JSON.parse(
@@ -25,7 +25,7 @@ const Header: FunctionComponent = ({}) => {
     );
 
     setCartQuantity(totalQuantity);
-  }, [cartQuantity]);
+  }, []);
 
   const toggleCartDrawer = () => {
     setOpenDrawer((prevState) => !openDrawer);
@@ -45,7 +45,12 @@ const Header: FunctionComponent = ({}) => {
           </div>
         </div>
       </header>
-      {openDrawer ? <Cart toggleCartDrawer={toggleCartDrawer} /> : null}
+      {openDrawer ? (
+        <Cart
+          toggleCartDrawer={toggleCartDrawer}
+          setCartQuantity={setCartQuantity}
+        />
+      ) : null}
     </>
   );
 };
