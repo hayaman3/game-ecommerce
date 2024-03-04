@@ -10,17 +10,21 @@ interface CartItem {
   quantity: number;
 }
 
-const getLocalStorageQuantity = () => {
-  if (!localStorage.getItem(USER_CART_KEY)) return null;
+type localStorageData = {
+  quantity: number;
+};
 
-  const localStorageData = JSON.parse(
-    localStorage.getItem(USER_CART_KEY) || "{}",
-  ) as Record<string, CartItem>;
+const getLocalStorageQuantity = () => {
+  const rawData = localStorage.getItem(USER_CART_KEY);
+  if (!rawData) return null;
+
+  const localStorageData: localStorageData[] = JSON.parse(rawData);
 
   const totalQuantity = Object.values(localStorageData).reduce(
     (acc, item) => acc + item.quantity,
     0,
   );
+
   return totalQuantity;
 };
 
@@ -28,6 +32,6 @@ export const useQuantityStore = create<QuantityStore>((set) => ({
   quantity: getLocalStorageQuantity(),
 
   setQuantity: (newQuantity: number) => {
-    // TODO
+    set({ quantity: newQuantity });
   },
 }));
