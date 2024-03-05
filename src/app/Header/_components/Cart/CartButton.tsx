@@ -2,12 +2,12 @@
 import React, { FunctionComponent, useState } from "react";
 import CartIcon from "../../_icons/CartIcon";
 
-export type CartButtonProps = {
+export type BackButtonProps = {
   cartQuantity?: number | null;
   toggleCartDrawer: () => void;
 };
 
-const CartButton: FunctionComponent<CartButtonProps> = ({
+const BackButton: FunctionComponent<BackButtonProps> = ({
   cartQuantity,
   toggleCartDrawer,
 }) => {
@@ -27,4 +27,4 @@ const CartButton: FunctionComponent<CartButtonProps> = ({
   );
 };
 
-export default CartButton;
+export default BackButton;

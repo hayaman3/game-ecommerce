@@ -35,3 +35,10 @@ export const useQuantityStore = create<QuantityStore>((set) => ({
     set({ quantity: newQuantity });
   },
 }));
+
+// const localStorageCall = localStorage.getItem(USER_CART_KEY) || "{}";
+// const localStorageData = JSON.parse(localStorageCall);
+// localStorageData[title].quantity = quantity;
+// localStorage.setItem(USER_CART_KEY, JSON.stringify(localStorageData));
+
+export { getLocalStorageQuantity };
