@@ -2,6 +2,7 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
 import UpIcon from "../../_icons/UpIcon";
 import DownIcon from "../../_icons/DownIcon";
+import { useQuantityStore } from "@/app/_store/useQuantityStore";
 
 export type QuantityProps = {
   title: string;
@@ -14,7 +15,9 @@ const Quantity: FunctionComponent<QuantityProps> = ({
   title,
   quantity: initialQuantity,
 }) => {
-  const [quantity, setQuantity] = useState(initialQuantity);
+  const quantity = useQuantityStore((state) => state.quantity);
+  const setQuantity = useQuantityStore((state) => state.setQuantity);
+  // const [quantity, setQuantity] = useState(initialQuantity);
 
   useEffect(() => {
     const localStorageCall = localStorage.getItem(USER_CART_KEY) || "{}";
@@ -24,10 +27,12 @@ const Quantity: FunctionComponent<QuantityProps> = ({
   });
 
   const handleIncrease = () => {
+    if (quantity === null) return;
     setQuantity(quantity + 1);
   };
 
   const handleDecrease = () => {
+    if (quantity === null) return;
     if (quantity != 1) {
       setQuantity(quantity - 1);
     }

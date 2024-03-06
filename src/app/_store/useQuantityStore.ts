@@ -3,6 +3,8 @@ import { create } from "zustand";
 interface QuantityStore {
   quantity: number | null;
   setQuantity: (newQuantity: number) => void;
+  increment: () => void;
+  decrement: () => void;
 }
 
 const USER_CART_KEY = "cartkey";
@@ -34,11 +36,17 @@ export const useQuantityStore = create<QuantityStore>((set) => ({
   setQuantity: (newQuantity: number) => {
     set({ quantity: newQuantity });
   },
+
+  increment: () => {
+    set((state) => ({ quantity: (state.quantity || 0) + 1 }));
+  },
+
+  decrement: () => {
+    set((state) => ({ quantity: Math.max((state.quantity || 0) - 1, 0) }));
+  },
 }));
 
 // const localStorageCall = localStorage.getItem(USER_CART_KEY) || "{}";
 // const localStorageData = JSON.parse(localStorageCall);
 // localStorageData[title].quantity = quantity;
 // localStorage.setItem(USER_CART_KEY, JSON.stringify(localStorageData));
-
-export { getLocalStorageQuantity };
