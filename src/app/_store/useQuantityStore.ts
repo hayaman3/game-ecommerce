@@ -16,18 +16,25 @@ type localStorageData = {
   quantity: number;
 };
 
-const getLocalStorageQuantity = () => {
+// const getLocalStorageQuantity = () => {
+//   const rawData = localStorage.getItem(USER_CART_KEY);
+//   if (!rawData) return null;
+
+//   const localStorageData: localStorageData[] = JSON.parse(rawData);
+
+//   const totalQuantity = Object.values(localStorageData).reduce(
+//     (acc, item) => acc + item.quantity,
+//     0,
+//   );
+
+//   return totalQuantity;
+// };
+
+const getLocalStorageData = (): localStorageData | null => {
   const rawData = localStorage.getItem(USER_CART_KEY);
   if (!rawData) return null;
 
-  const localStorageData: localStorageData[] = JSON.parse(rawData);
-
-  const totalQuantity = Object.values(localStorageData).reduce(
-    (acc, item) => acc + item.quantity,
-    0,
-  );
-
-  return totalQuantity;
+  return JSON.parse(rawData);
 };
 
 export const useQuantityStore = create<QuantityStore>((set) => ({
@@ -45,6 +52,19 @@ export const useQuantityStore = create<QuantityStore>((set) => ({
     set((state) => ({ quantity: Math.max((state.quantity || 0) - 1, 0) }));
   },
 }));
+
+const getLocalStorageQuantity = (): number | null => {
+  const localStorageData = getLocalStorageData();
+
+  if (!localStorageData) return null;
+
+  const totalQuantity = Object.values(localStorageData).reduce(
+    (acc, item) => acc + item.quantity,
+    0,
+  );
+
+  return totalQuantity;
+};
 
 // const localStorageCall = localStorage.getItem(USER_CART_KEY) || "{}";
 // const localStorageData = JSON.parse(localStorageCall);
