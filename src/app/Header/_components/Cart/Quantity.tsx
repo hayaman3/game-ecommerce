@@ -11,12 +11,9 @@ export type QuantityProps = {
 
 const USER_CART_KEY = "cartkey";
 
-const Quantity: FunctionComponent<QuantityProps> = ({
-  title,
-  quantity: initialQuantity,
-}) => {
-  const quantity = useQuantityStore((state) => state.quantity);
-  const setQuantity = useQuantityStore((state) => state.setQuantity);
+const Quantity: FunctionComponent<QuantityProps> = ({ title, quantity }) => {
+  // const quantity = useQuantityStore((state) => initialQuantity);
+  const setQuantity = useQuantityStore((state) => quantity);
   // const [quantity, setQuantity] = useState(initialQuantity);
 
   useEffect(() => {
@@ -24,6 +21,7 @@ const Quantity: FunctionComponent<QuantityProps> = ({
     const localStorageData = JSON.parse(localStorageCall);
     localStorageData[title].quantity = quantity;
     localStorage.setItem(USER_CART_KEY, JSON.stringify(localStorageData));
+    // setQuantity(quantity);
   });
 
   const handleIncrease = () => {
