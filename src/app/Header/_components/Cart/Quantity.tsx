@@ -2,7 +2,7 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
 import UpIcon from "../../_icons/UpIcon";
 import DownIcon from "../../_icons/DownIcon";
-import { useNumberStore } from "@/app/_store/useNumberStore";
+import { useQuantity } from "@/_provider/QuantityProvider";
 
 export type QuantityProps = {
   title: string;
@@ -12,25 +12,33 @@ export type QuantityProps = {
 const USER_CART_KEY = "cartkey";
 
 const Quantity: FunctionComponent<QuantityProps> = ({ title, quantity }) => {
-  const { number, setNumber, increment, decrement } = useNumberStore();
+  const { cartQuantity, updateCartQuantity } = useQuantity();
 
-  // useEffect(() => {
-  //   const localStorageCall = localStorage.getItem(USER_CART_KEY) || "{}";
-  //   const localStorageData = JSON.parse(localStorageCall);
-  //   localStorageData[title].quantity = quantity;
-  //   localStorage.setItem(USER_CART_KEY, JSON.stringify(localStorageData));
-  // }, [number]);
+  const updateLocalStorage = (newQuantity: number): void => {
+    const localStorageData = JSON.parse(
+      localStorage.getItem(USER_CART_KEY) || "{}",
+    ) as Record<string, { quantity: number }>;
+
+    if (localStorageData[title]) {
+      localStorageData[title].quantity = newQuantity;
+      localStorage.setItem(USER_CART_KEY, JSON.stringify(localStorageData));
+    }
+
+    updateCartQuantity(newQuantity);
+  };
 
   const handleIncrease = () => {
     if (quantity === null) return;
-    increment();
+
+    const updatedQuantity = quantity + 1;
+    updateLocalStorage(updatedQuantity);
   };
 
   const handleDecrease = () => {
     if (quantity === null) return;
-    if (quantity !== 1) {
-      decrement();
-    }
+
+    const updatedQuantity = Math.max(quantity - 1, 1);
+    updateLocalStorage(updatedQuantity);
   };
 
   return (
