@@ -1,5 +1,5 @@
 "use client";
-import React, { FunctionComponent, useState, useEffect } from "react";
+import React, { FunctionComponent } from "react";
 import UpIcon from "../../_icons/UpIcon";
 import DownIcon from "../../_icons/DownIcon";
 import { useQuantity } from "@/_provider/QuantityProvider";
@@ -12,7 +12,7 @@ export type QuantityProps = {
 const USER_CART_KEY = "cartkey";
 
 const Quantity: FunctionComponent<QuantityProps> = ({ title, quantity }) => {
-  const { cartQuantity, updateCartQuantity } = useQuantity();
+  const { updateCartQuantity } = useQuantity();
 
   const updateLocalStorage = (newQuantity: number): void => {
     const localStorageData = JSON.parse(
