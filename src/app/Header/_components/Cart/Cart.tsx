@@ -12,7 +12,7 @@ const USER_CART_KEY = "cartkey";
 
 export type CartProps = {
   toggleCartDrawer: () => void;
-  setCartQuantity: Dispatch<SetStateAction<number | null | undefined>>;
+  // setCartQuantity: Dispatch<SetStateAction<number | null | undefined>>;
 };
 
 type CartItem = {
@@ -23,7 +23,7 @@ type CartItem = {
 
 const Cart: FunctionComponent<CartProps> = ({
   toggleCartDrawer,
-  setCartQuantity,
+  // setCartQuantity,
 }) => {
   const [items, setItems] = useState({} || null);
 
@@ -40,7 +40,7 @@ const Cart: FunctionComponent<CartProps> = ({
       0,
     );
 
-    setCartQuantity(totalQuantity);
+    // setCartQuantity(totalQuantity);
   }, []);
 
   const GetItems = () => {

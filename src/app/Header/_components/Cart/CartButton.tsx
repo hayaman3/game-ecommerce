@@ -1,17 +1,52 @@
 "use client";
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import CartIcon from "../../_icons/CartIcon";
 import { useQuantity } from "@/_provider/QuantityProvider";
 
 export type CartButtonProps = {
-  cartQuantity: number;
+  // cartQuantity: number;
   toggleCartDrawer: () => void;
 };
+
+type CartItem = {
+  image: string;
+  price: number;
+  quantity: number;
+};
+
+const USER_CART_KEY = "cartkey";
 
 const CartButton: FunctionComponent<CartButtonProps> = ({
   toggleCartDrawer,
 }) => {
-  const { cartQuantity } = useQuantity();
+  const { cartQuantity, updateCartQuantity } = useQuantity();
+
+  useEffect(() => {
+    // const storedItems = GetItems();
+    // if (storedItems) {
+    //   setItems(storedItems);
+    // }
+    // const localStorageData = JSON.parse(
+    //   localStorage.getItem(USER_CART_KEY) || "{}",
+    // ) as Record<string, CartItem>;
+    // const totalQuantity = Object.values(localStorageData).reduce(
+    //   (acc, item) => acc + item.quantity,
+    //   0,
+    // );
+  }, []);
+
+  useEffect(() => {
+    const localStorageData = JSON.parse(
+      localStorage.getItem(USER_CART_KEY) || "{}",
+    ) as Record<string, CartItem>;
+    const totalQuantity = Object.values(localStorageData).reduce(
+      (acc, item) => acc + item.quantity,
+      0,
+    );
+
+    updateCartQuantity(totalQuantity);
+  }, []);
+
   return (
     <button className="relative" onClick={toggleCartDrawer}>
       <CartIcon />
