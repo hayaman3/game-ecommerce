@@ -44,15 +44,15 @@ const CartButton: FunctionComponent<CartButtonProps> = ({
       0,
     );
 
-    updateCartQuantity(totalQuantity);
+    updateCartQuantity((prevQuantity) => totalQuantity);
   }, []);
 
   return (
     <button className="relative" onClick={toggleCartDrawer}>
       <CartIcon />
       {cartQuantity > 0 && (
-        <span className="absolute -right-[6px] bottom-0 flex h-4 w-4 content-center items-center justify-center rounded-full border-2 border-dark-300 bg-white p-2">
-          <span className="text-center text-xs font-bold text-dark-300">
+        <span className="absolute -right-[6px] bottom-0 flex h-6 w-6 items-center justify-center rounded-full border-2 border-dark-300 bg-white">
+          <span className="flex h-full w-full items-center justify-center text-xs font-bold text-dark-300">
             {cartQuantity}
           </span>
         </span>

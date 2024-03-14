@@ -8,8 +8,8 @@ const CartIcon: FunctionComponent<TSVGElementProps> = (props, className) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="32"
+      width="40"
+      height="40"
       fill="currentColor"
       stroke="currentColor"
       strokeWidth="0"

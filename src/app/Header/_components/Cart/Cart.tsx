@@ -40,7 +40,6 @@ const Cart: FunctionComponent<CartProps> = ({
       0,
     );
 
-    // setCartQuantity(totalQuantity);
   }, []);
 
   const GetItems = () => {

@@ -1,4 +1,3 @@
-// CartProvider.tsx
 import React, {
   createContext,
   useContext,
@@ -15,32 +14,41 @@ interface CartItem {
 
 interface CartContextProps {
   cartQuantity: number;
-  updateCartQuantity: (newQuantity: number) => void;
+  updateCartQuantity: (
+    updateCallback: (prevQuantity: number) => number,
+  ) => void;
 }
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
+
+const getLocalStorageQuantity = () => {
+  const localStorageData = JSON.parse(
+    localStorage.getItem(USER_CART_KEY) || "{}",
+  ) as Record<string, CartItem>;
+
+  if (!localStorageData) return 0;
+
+  const totalQuantity = Object.values(localStorageData).reduce(
+    (acc, item) => acc + item.quantity,
+    0,
+  );
+
+  return totalQuantity;
+};
 
 interface CartProviderProps {
   children: ReactNode;
 }
 
 const QuantityProvider: React.FC<CartProviderProps> = ({ children }) => {
-  const [cartQuantity, setCartQuantity] = useState<number>(0);
+  const [cartQuantity, setCartQuantity] = useState<number>(
+    getLocalStorageQuantity(),
+  );
 
-  // useEffect(() => {
-  //   const localStorageData = JSON.parse(
-  //     localStorage.getItem(USER_CART_KEY) || "{}",
-  //   ) as Record<string, CartItem>;
-  //   const totalQuantity = Object.values(localStorageData).reduce(
-  //     (acc, item) => acc + item.quantity,
-  //     0,
-  //   );
-
-  //   setCartQuantity(totalQuantity);
-  // }, []);
-
-  const updateCartQuantity = (newQuantity: number) => {
-    setCartQuantity(newQuantity);
+  const updateCartQuantity = (
+    updateCallback: (prevQuantity: number) => number,
+  ) => {
+    setCartQuantity((prevQuantity) => updateCallback(prevQuantity));
   };
 
   return (
