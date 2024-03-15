@@ -17,19 +17,20 @@ const Quantity: FunctionComponent<QuantityProps> = ({ title, quantity }) => {
   const updateQuantity = (updatedQuantity: number) => {
     setDisplayQuantity(updatedQuantity);
     updateLocalStorage(updatedQuantity, title);
-    updateCartQuantity((prevQuantity) => prevQuantity + 1);
   };
 
   const handleIncrease = () => {
     if (displayQuantity === null) return;
     const updatedQuantity = displayQuantity + 1;
     updateQuantity(updatedQuantity);
+    updateCartQuantity((prevQuantity) => prevQuantity + 1);
   };
 
   const handleDecrease = () => {
     if (displayQuantity === null) return;
     const updatedQuantity = Math.max(displayQuantity - 1, 1);
     updateQuantity(updatedQuantity);
+    updateCartQuantity((prevQuantity) => prevQuantity - 1);
   };
 
   return (
