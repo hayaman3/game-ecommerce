@@ -16,6 +16,8 @@ interface CartContextProps {
 const CartContext = createContext<CartContextProps | undefined>(undefined);
 
 const getLocalStorageQuantity = () => {
+  if (typeof window === "undefined") return 0;
+
   const localStorageData = JSON.parse(
     localStorage.getItem(USER_CART_KEY) || "{}",
   ) as Record<string, CartItem>;
