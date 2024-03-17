@@ -11,7 +11,7 @@ interface CartItem {
 }
 
 const Header: FunctionComponent = ({}) => {
-  const [openDrawer, setOpenDrawer] = useState(true);
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   const toggleCartDrawer = () => {
     setOpenDrawer((prevState) => !openDrawer);
