@@ -53,48 +53,39 @@ import React, { FunctionComponent } from "react";
 import Image from "next/image";
 import { Button, LinkButton } from "./Test";
 import CartIcon from "../Shop/_icons/CartIcon";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 export type pageProps = {
   //no props
 };
 
+interface Data {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
 const page: FunctionComponent<pageProps> = ({}) => {
+  // const { isLoading, error, data } = useQuery('data', fetchTodos);
+
+  const { data } = useQuery({
+    // queryKey: ["rawgAPI"],
+    queryKey: ["asd"],
+
+    queryFn: async () => {
+      const { data } = await axios.get(
+        "https://jsonplaceholder.typicode.com/posts/1",
+      );
+      return data as Data;
+    },
+  });
   return (
-    // <>
-    //   {/* <Button>Button</Button>
-    //   <LinkButton href="/Test">Button</LinkButton> */}
-    //   <div className="mt-20">asd</div>
-    //   {/* <img src="../../../public/test.jpg" className="h-50 w-20" /> */}
-    //   <div className="h-[600px] w-[300px] overflow-hidden">
-    //     <Image
-    //       src="/test.jpg"
-    //       // fill
-    //       width={300}
-    //       height={600}
-    //       className=" overflow-hidden rounded-lg object-cover shadow-sm hover:scale-150"
-    //       alt=""
-    //     />
-    //   </div>
-    // </>
     <>
-      <div className="mt-16"></div>
-      <CartIcon className="text-blue-500" />
-      <CartIcon fill="red" />
-      <CartIcon className="h-[300px] w-[300px]" />
-      <CartIcon className="text-[300px]" />
-      <CartIcon className="" />
+      <div>{JSON.stringify(data)}</div>
     </>
   );
 };
 
 export default page;
-
-// export async function getServerSideProps() {
-//   const trial = process.env.RAWG_KEY;
-//   console.log(trial);
-//   return {
-//     props: {
-//       title: "hello",
-//     },
-//   };
-// }
