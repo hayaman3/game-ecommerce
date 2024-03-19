@@ -15,23 +15,19 @@ export const metadata: Metadata = {
   description: "E-commerce NextJs13",
 };
 
-const queryClient = new QueryClient();
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <html lang="en">
-        <body
-          className={`flex h-full flex-col bg-dark-300 text-white ${inter.className}`}
-        >
-          <Header />
-          {children}
-        </body>
-      </html>
-    </QueryClientProvider>
+    <html lang="en">
+      <body
+        className={`flex h-full flex-col bg-dark-300 text-white ${inter.className}`}
+      >
+        <Header />
+        {children}
+      </body>
+    </html>
   );
 }

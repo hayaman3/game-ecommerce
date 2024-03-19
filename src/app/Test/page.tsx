@@ -48,17 +48,14 @@
 // };
 
 // export default page;
-
+"use client";
 import React, { FunctionComponent } from "react";
-import Image from "next/image";
-import { Button, LinkButton } from "./Test";
-import CartIcon from "../Shop/_icons/CartIcon";
-import { useQuery } from "@tanstack/react-query";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from "@tanstack/react-query";
 import axios from "axios";
-
-export type pageProps = {
-  //no props
-};
 
 interface Data {
   userId: number;
@@ -67,7 +64,19 @@ interface Data {
   body: string;
 }
 
-const page: FunctionComponent<pageProps> = ({}) => {
+const queryClient = new QueryClient();
+
+const Test: FunctionComponent = () => {
+  return (
+    <>
+      <QueryClientProvider client={queryClient}>
+        <Page />
+      </QueryClientProvider>
+    </>
+  );
+};
+
+const Page: FunctionComponent = () => {
   // const { isLoading, error, data } = useQuery('data', fetchTodos);
 
   const { data } = useQuery({
@@ -82,10 +91,10 @@ const page: FunctionComponent<pageProps> = ({}) => {
     },
   });
   return (
-    <>
+    <main className="mt-[100px] w-[300px] p-20">
       <div>{JSON.stringify(data)}</div>
-    </>
+    </main>
   );
 };
 
-export default page;
+export default Test;
