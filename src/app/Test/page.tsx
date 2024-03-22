@@ -6,7 +6,7 @@ import {
   useQuery,
 } from "@tanstack/react-query";
 import axios from "axios";
-import extractedData from "@/_data/gamesData";
+// import extractedData from "@/_data/gamesData";
 
 interface Data {
   userId: number;
@@ -44,13 +44,13 @@ const Page: FunctionComponent = () => {
   //   },
   // });
 
-  useEffect(() => {
-    console.log(extractedData);
-  }, []);
+  // useEffect(() => {
+  //   console.log(extractedData);
+  // }, []);
 
   return (
     <main className="mt-[100px] w-[300px] p-20">
-      <div>{JSON.stringify(extractedData)}</div>
+      {/* <div>{JSON.stringify()}</div> */}
     </main>
   );
 };
