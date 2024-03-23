@@ -30,19 +30,17 @@ const Test: FunctionComponent = () => {
 const Page: FunctionComponent = () => {
   // const { isLoading, error, data } = useQuery('data', fetchTodos);
 
-  // const { data } = useQuery({
-  //   // queryKey: ["rawgAPI"],
-  //   queryKey: ["asd"],
-  //   // https://api.rawg.io/api/games
+  const { data } = useQuery({
+    // queryKey: ["rawgAPI"],
+    queryKey: ["asd"],
+    // https://api.rawg.io/api/games
 
-  //   queryFn: async () => {
-  //     const { data } = await axios.get(
-  //       "https://api.rawg.io/api/games?key=",
-  //     );
-  //     console.log(data);
-  //     return data as Data;
-  //   },
-  // });
+    queryFn: async () => {
+      const { data } = await axios.get("http://localhost:3000/api/page_two");
+      console.log(data);
+      return data as Data;
+    },
+  });
 
   // useEffect(() => {
   //   console.log(extractedData);
@@ -50,7 +48,7 @@ const Page: FunctionComponent = () => {
 
   return (
     <main className="mt-[100px] w-[300px] p-20">
-      {/* <div>{JSON.stringify()}</div> */}
+      <div>{JSON.stringify(data)}</div>
     </main>
   );
 };
