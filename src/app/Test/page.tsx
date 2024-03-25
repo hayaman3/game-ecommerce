@@ -7,6 +7,7 @@ import {
 } from "@tanstack/react-query";
 import Image from "next/image";
 import axios from "axios";
+import ShopSkeleton from "@/_components/Skeleton/ShopSkeleton";
 
 type Data = {
   id: number;
@@ -46,7 +47,7 @@ const Page: FunctionComponent = () => {
 
   return (
     <main className="mt-[100px] w-[300px] p-20">
-      <div>{JSON.stringify(data)}</div>
+      {/* <div>{JSON.stringify(data)}</div>
       {data &&
         data.map(({ id, name, background_image, rating }) => (
           <Image
@@ -55,10 +56,10 @@ const Page: FunctionComponent = () => {
             width={500}
             height={500}
             alt={name}
-            placeholder="blur"
             // className="transition"
           />
-        ))}
+        ))} */}
+      <ShopSkeleton />
     </main>
   );
 };
