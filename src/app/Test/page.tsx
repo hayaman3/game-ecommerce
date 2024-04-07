@@ -8,6 +8,7 @@ import {
 import Image from "next/image";
 import axios from "axios";
 import ShopSkeleton from "@/_components/Skeleton/ShopSkeleton";
+import Main from "@/_components/Layout/Main";
 
 type Data = {
   id: number;
@@ -46,8 +47,8 @@ const Page: FunctionComponent = () => {
   }, [data]);
 
   return (
-    <main className="mt-[100px] w-[300px] p-20">
-      {/* <div>{JSON.stringify(data)}</div>
+    <Main className="mt-[100px] w-[300px] p-20">
+      <div>{JSON.stringify(data)}</div>
       {data &&
         data.map(({ id, name, background_image, rating }) => (
           <Image
@@ -58,9 +59,9 @@ const Page: FunctionComponent = () => {
             alt={name}
             // className="transition"
           />
-        ))} */}
+        ))}
       <ShopSkeleton />
-    </main>
+    </Main>
   );
 };
 
